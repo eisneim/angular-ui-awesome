@@ -1,0 +1,120 @@
+$color-1: #243040; // Ebony Clay
+$color-2: #9cb3a8; // Pewter
+$color-3: #ffffff; // White
+
+// fonts 
+
+$primary-font: 'Open Sans', sans-serif;
+$secondary-font: 'Merriweather', serif;
+
+// animation
+$animation-duration: 0.7s;
+
+.cd-nav-trigger {
+	position: fixed;
+	z-index: 3;
+	left: 5%;
+	top: 20px;
+	height: 54px;
+	width: 54px;
+	background-color: $color-1;
+	border-radius: 50%;
+	
+	/* image replacement */
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+
+	@include transition(transform $animation-duration - 0.2s);
+
+	.cd-nav-icon {
+		/* icon created in CSS */
+		position: absolute;
+		@include center; // mixin inside partials > _mixins.scss
+		width: 22px;
+		height: 2px;
+		background-color: $color-3;
+
+		&::before, &:after {
+			/* upper and lower lines of the menu icon */
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%; 
+			background-color: inherit;
+
+			/* Force Hardware Acceleration in WebKit */
+			@include transform(translateZ(0));
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+
+			@include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s);
+		}
+
+		&::before {
+			@include transform-origin(right top);
+			@include transform(translateY(-6px));
+		}
+
+		&::after {
+			@include transform-origin(right bottom);
+			@include transform(translateY(6px));
+		}
+
+	}
+
+	.no-touch &:hover .cd-nav-icon::after {
+		top: 2px;
+	} 
+
+	.no-touch &:hover .cd-nav-icon::before {
+		top: -2px;
+	} 
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	circle {
+		/* circle border animation */
+		@include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+	}
+
+	&.open {
+		/* rotate trigger when navigation becomes visible */
+		@include transform(rotate(180deg));
+
+		.cd-nav-icon::after, 
+		.cd-nav-icon::before {
+			/* animate arrow --> from hamburger to arrow */
+			width: 50%;
+			@include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+		}
+
+		.cd-nav-icon::before {
+			@include transform(rotate(45deg));
+		}
+
+		.cd-nav-icon::after {
+			@include transform(rotate(-45deg));
+		}
+
+		.no-touch &:hover .cd-nav-icon::after,
+		.no-touch &:hover .cd-nav-icon::before {
+			top: 0;
+		} 
+
+		circle {
+			stroke-dashoffset: 0;
+			@include transition(stroke-dashoffset $animation-duration - 0.3s 0.3s);
+		}
+	}
+
+	@include MQ(L) {
+		top: 40px;
+	}
+}
