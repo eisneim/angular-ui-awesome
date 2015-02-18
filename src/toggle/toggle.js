@@ -9,7 +9,6 @@ ua.directive('uaToggleOne',function(){
 		</a>',
 		link:function($scope,elm,attrs,ctrl){
 			var isLateralNavAnimating = false;
-
 			elm.on('click',function(e){
 				// e.preventDefault();
 				elm.toggleClass('open');
@@ -26,3 +25,4 @@ ua.directive('uaToggleOne',function(){
 		}
 	}
 })
+

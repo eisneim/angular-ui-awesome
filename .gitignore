@@ -15,4 +15,5 @@ node_modules
 .idea/
 
 doc/vendor/
-
+doc/css/
+doc/app/angular-ui-awesome.js

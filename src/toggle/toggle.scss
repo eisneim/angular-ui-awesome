@@ -25,7 +25,7 @@ $animation-duration: 0.7s;
 	text-indent: 100%;
 	white-space: nowrap;
 
-	@include transition(transform $animation-duration - 0.2s);
+	transition:transform 0.5s;
 
 	.cd-nav-icon {
 		/* icon created in CSS */
@@ -46,21 +46,21 @@ $animation-duration: 0.7s;
 			background-color: inherit;
 
 			/* Force Hardware Acceleration in WebKit */
-			@include transform(translateZ(0));
+			transform:translateZ(0);
 			-webkit-backface-visibility: hidden;
 			backface-visibility: hidden;
 
-			@include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s);
+			transition: transform 0.5s, width 0.5s, top .3s ;
 		}
 
 		&::before {
-			@include transform-origin(right top);
-			@include transform(translateY(-6px));
+			transform-origin:right top;
+			transform: translateY(-6px);
 		}
 
 		&::after {
-			@include transform-origin(right bottom);
-			@include transform(translateY(6px));
+			transform-origin:right bottom;
+			transform:translateY(6px);
 		}
 
 	}
@@ -81,26 +81,26 @@ $animation-duration: 0.7s;
 
 	circle {
 		/* circle border animation */
-		@include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+		transition:stroke-dashoffset $animation-duration - 0.3s 0s;
 	}
 
 	&.open {
 		/* rotate trigger when navigation becomes visible */
-		@include transform(rotate(180deg));
+		transform:rotate(180deg);
 
 		.cd-nav-icon::after, 
 		.cd-nav-icon::before {
 			/* animate arrow --> from hamburger to arrow */
 			width: 50%;
-			@include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+			transition:transform $animation-duration - 0.2s, width $animation-duration - 0.2s;
 		}
 
 		.cd-nav-icon::before {
-			@include transform(rotate(45deg));
+			transform:rotate(45deg);
 		}
 
 		.cd-nav-icon::after {
-			@include transform(rotate(-45deg));
+			transform:rotate(-45deg);
 		}
 
 		.no-touch &:hover .cd-nav-icon::after,
@@ -110,7 +110,7 @@ $animation-duration: 0.7s;
 
 		circle {
 			stroke-dashoffset: 0;
-			@include transition(stroke-dashoffset $animation-duration - 0.3s 0.3s);
+			transition:stroke-dashoffset $animation-duration - 0.3s 0.3s;
 		}
 	}
 

@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     livereload = require('gulp-livereload'),
     watch = require('gulp-watch');
-    wait = require('gulp-wait');
+
 
 // js file 
 var concat = require('gulp-concat'),
@@ -38,23 +38,23 @@ gulp.task('sass-doc', function() {
     .pipe(sass())
     .pipe(autoprefix('last 2 versions'))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./doc/css/main.css'))
+    .pipe(gulp.dest('./doc/css/'))
     .pipe(livereload());
 });
 gulp.task('sass-build', function() {
-  gulp.src('./src/_scss/main.scss')
+  gulp.src('./src/_scss/angular-ui-awesome.scss')
     .pipe(sass())
     .pipe(autoprefix('last 2 versions'))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./build/angular-ui-awesome.css'))
+    .pipe(gulp.dest('./build/'))
 });
 
 gulp.task('sass-watch',function() {
-  watch({glob: paths.sass}, ['sass'] )
+  watch({glob: paths.sass}, ['sass-doc'] )
 });
 
 // ---------------------------------------------------- js
-gulp.task('js', function() {
+gulp.task('js-build', function() {
   gulp.src(paths.js)
     .pipe(ngAnnotate() )
     .pipe(concat('angular-ui-awesome.js'))
@@ -63,6 +63,12 @@ gulp.task('js', function() {
           mangle:false,
         }) ) 
     .pipe(gulp.dest('./build/'))
+});
+
+gulp.task('js-doc', function() {
+  gulp.src(paths.js)
+    .pipe(concat('angular-ui-awesome.js'))
+    .pipe(gulp.dest('./doc/app/'))
 });
 
 // gulp.task('join-modules', function() {
@@ -100,15 +106,19 @@ gulp.task('tplCache', function () {
 // --------------------------------------------------------------watch
 gulp.task('watch', function() {
     livereload.listen();
-    gulp.watch(paths.html).on('change', livereload.changed);
-    gulp.watch(paths.js).on('change', livereload.changed);
+    gulp.watch([paths.html,'./doc/app/**/*.html']).on('change', livereload.changed);
+    gulp.watch(paths.js,['js-doc'])
+    gulp.watch(paths.js ).on('change', livereload.changed);
+
+    gulp.watch('./doc/app/**/*.js').on('change', livereload.changed);
+    gulp.watch('./doc/scss/**/*.scss', ['sass-doc']);
     gulp.watch(paths.sass, ['sass-doc']);
 });
 
 // ---------------------------------------- production -------------
 gulp.task('default', ['watch']);
 
-gulp.task('build', ['tplCache','sass-build','js']); // 'join-modules',
+gulp.task('build', ['tplCache','sass-build','js-build']); // 'join-modules',
 
 
 

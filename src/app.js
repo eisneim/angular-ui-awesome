@@ -7,6 +7,6 @@
 
 'use strict';
 
-var app = angular.module('ngUiAwesome',[]);
+var ua = angular.module('ngUiAwesome',[]);
 
 // app.run()

@@ -14,8 +14,11 @@ http.createServer(function(req,res){
 	var ct = getContentType(core_url);
 	
 	rs.on('error',function(){
-		res.writeHead(404,{'Content-Type':'text/plain'});
-		res.end('not found');
+		// res.writeHead(404,{'Content-Type':'text/plain'});
+		// res.end('not found');
+		rs = fs.createReadStream( 'index.html' );
+		res.writeHead(200,{'Content-Type':'text/html'});
+		rs.pipe(res);	
 	})
 
 	res.writeHead(200,{'Content-Type':ct});

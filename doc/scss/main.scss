@@ -1,4 +1,17 @@
 // import ui awesome
-@import '../../src/_scss/main.scss';
+@import '../../src/_scss/angular-ui-awesome.scss';
 
+
+html,body{
+	height:100%;
+}
 // doc styles here:
+#ua-doc-side-nav{
+	width:300px;
+	height: 100%;
+	background: red;
+}
+
+#ua-doc-main{
+
+}
