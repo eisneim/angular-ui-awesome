@@ -10,8 +10,28 @@
 </head>
 <body class="grid">
 	
-	<nav id="ua-doc-side-nav">
-		
+	<nav id="ua-doc-side-nav" ng-controller="navCtrl as navCtrl">
+		<!-- <ul class="ua-side-nav-list">
+			<li>
+				<a href="/" alt="home page">Home</a>
+			</li>
+		</ul> -->
+		<!-- <a href="#/" id="ua-doc-logo">LOGO</a> -->
+
+		<h2>Components</h2>
+		<ul class="ua-side-nav-list">
+			<li ng-repeat="cc in navCtrl.components">
+				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
+			</li>
+		</ul>
+
+		<h2>Services</h2>
+		<ul class="ua-side-nav-list">
+			<li ng-repeat="cc in navCtrl.services">
+				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
+			</li>
+		</ul>
+
 	</nav>
 	<div id="ua-doc-main" ng-view="" class="fluid"></div>
 

@@ -23,10 +23,9 @@ http.createServer(function(req,res){
 
 	res.writeHead(200,{'Content-Type':ct});
 
-	// pipe的作用就是简化 readable 和 end stream！
 	rs.pipe(res);
 
-	// console.log(core_url)
+	console.log("[[90m"+core_url+'[39m]');
 
 }).listen(port);
 console.log('dev file server listening on port: '+port);
