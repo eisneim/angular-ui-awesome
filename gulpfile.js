@@ -32,13 +32,13 @@ var paths = {
 };
 
 // ---------------------------------------------------- sass
-gulp.task('sass', function() {
+gulp.task('sass-doc', function() {
   // console.log('-----build main.scss');
-  gulp.src('./src/_scss/main.scss')
+  gulp.src('./doc/scss/main.scss')
     .pipe(sass())
     .pipe(autoprefix('last 2 versions'))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./build/angular-ui-awesome.css'))
+    .pipe(gulp.dest('./doc/css/main.css'))
     .pipe(livereload());
 });
 gulp.task('sass-build', function() {
@@ -102,7 +102,7 @@ gulp.task('watch', function() {
     livereload.listen();
     gulp.watch(paths.html).on('change', livereload.changed);
     gulp.watch(paths.js).on('change', livereload.changed);
-    gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.sass, ['sass-doc']);
 });
 
 // ---------------------------------------- production -------------
