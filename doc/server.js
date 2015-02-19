@@ -25,7 +25,7 @@ http.createServer(function(req,res){
 
 	rs.pipe(res);
 
-	console.log("[[90m"+core_url+'[39m]');
+	console.log("[90m"+core_url+'[39m');
 
 }).listen(port);
 console.log('dev file server listening on port: '+port);

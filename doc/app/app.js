@@ -16,10 +16,11 @@ app.config(function($routeProvider,$locationProvider){
 			// controllerAs:'homeCtrl',
 			title:'a collection of awesome ui components',
 		}
-	).when('/toggle',{
-			templateUrl:'app/common/login.html',
-			// controller:'loginCtrl',
-			title:'user login',
+	).when('/component/:component',{
+			templateUrl:'app/partials/component.html',
+			controller:'componentCtrl',
+			controllerAs:'comCtrl',
+			title:'',
 		}
 	).when('/404',{
 		templateUrl:'app/partials/404.html',

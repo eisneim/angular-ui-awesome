@@ -21,14 +21,14 @@
 		<h2>Components</h2>
 		<ul class="ua-side-nav-list">
 			<li ng-repeat="cc in navCtrl.components">
-				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
+				<a href="component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
 			</li>
 		</ul>
 
 		<h2>Services</h2>
 		<ul class="ua-side-nav-list">
 			<li ng-repeat="cc in navCtrl.services">
-				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
+				<a href="component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
 			</li>
 		</ul>
 
@@ -47,7 +47,10 @@
 	
 <!-- ------- doc ------- -->
 <script src="app/app.js"></script>
+<script src="app/componentData.js"></script>
 <script src="app/rootCtrl.js"></script>
+<script src="app/controllers/componentCtrl.js"></script>
+
 
 </body>
 </html>
