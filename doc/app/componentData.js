@@ -1,9 +1,7 @@
 angular.module('ua-doc').constant('COMDATA', [
   {
     "name": "toggle",
-    "demos": [
-      
-    ],
+    "path": 'app/comp/toggle.html',
     "url": ""
   }
 ]);

@@ -10,15 +10,16 @@ $secondary-font: 'Merriweather', serif;
 // animation
 $animation-duration: 0.7s;
 
-.cd-nav-trigger {
-	position: fixed;
+.uac-togglebararrow-trigger {
+	display: block;
+	position: relative;
 	z-index: 3;
-	left: 5%;
-	top: 20px;
+
 	height: 54px;
 	width: 54px;
 	background-color: $color-1;
 	border-radius: 50%;
+	margin: 10px;
 	
 	/* image replacement */
 	overflow: hidden;
@@ -27,7 +28,7 @@ $animation-duration: 0.7s;
 
 	transition:transform 0.5s;
 
-	.cd-nav-icon {
+	.uac-togglebararrow-bar {
 		/* icon created in CSS */
 		position: absolute;
 		@include center; // mixin inside partials > _mixins.scss
@@ -65,11 +66,11 @@ $animation-duration: 0.7s;
 
 	}
 
-	.no-touch &:hover .cd-nav-icon::after {
+	.no-touch &:hover .uac-togglebararrow-bar::after {
 		top: 2px;
 	} 
 
-	.no-touch &:hover .cd-nav-icon::before {
+	.no-touch &:hover .uac-togglebararrow-bar::before {
 		top: -2px;
 	} 
 
@@ -83,28 +84,43 @@ $animation-duration: 0.7s;
 		/* circle border animation */
 		transition:stroke-dashoffset $animation-duration - 0.3s 0s;
 	}
+	&.uac-right{
+		.uac-togglebararrow-bar {
+			&::before {
+				left:0;
+				transform-origin:left top;
+				transform: translateY(-6px);
+			}
 
-	&.open {
+			&::after {
+				left:0;
+				transform-origin:left bottom;
+				transform:translateY(6px);
+			}
+
+		}
+	}
+	.open>&, &.open {
 		/* rotate trigger when navigation becomes visible */
 		transform:rotate(180deg);
 
-		.cd-nav-icon::after, 
-		.cd-nav-icon::before {
+		.uac-togglebararrow-bar::after, 
+		.uac-togglebararrow-bar::before {
 			/* animate arrow --> from hamburger to arrow */
 			width: 50%;
 			transition:transform $animation-duration - 0.2s, width $animation-duration - 0.2s;
 		}
 
-		.cd-nav-icon::before {
+		.uac-togglebararrow-bar::before {
 			transform:rotate(45deg);
 		}
 
-		.cd-nav-icon::after {
+		.uac-togglebararrow-bar::after {
 			transform:rotate(-45deg);
 		}
 
-		.no-touch &:hover .cd-nav-icon::after,
-		.no-touch &:hover .cd-nav-icon::before {
+		.no-touch &:hover .uac-togglebararrow-bar::after,
+		.no-touch &:hover .uac-togglebararrow-bar::before {
 			top: 0;
 		} 
 
@@ -112,6 +128,17 @@ $animation-duration: 0.7s;
 			stroke-dashoffset: 0;
 			transition:stroke-dashoffset $animation-duration - 0.3s 0.3s;
 		}
+		&.uac-right{
+			transform:rotate(-180deg);
+			.uac-togglebararrow-bar::before {
+				transform:rotate(-45deg);
+			}
+
+			.uac-togglebararrow-bar::after {
+				transform:rotate(45deg);
+				left: 0;
+			}			
+		} 
 	}
 
 	@include MQ(L) {
