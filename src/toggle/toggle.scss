@@ -1,6 +1,5 @@
-$color-1: #243040; // Ebony Clay
-$color-2: #9cb3a8; // Pewter
-$color-3: #ffffff; // White
+$bg_color: #243040; // Ebony Clay
+$front_color: #ffffff; // White
 
 // fonts 
 
@@ -10,14 +9,14 @@ $secondary-font: 'Merriweather', serif;
 // animation
 $animation-duration: 0.7s;
 
-.uac-togglebararrow-trigger {
+.uac-toggle-bararrow {
 	display: block;
 	position: relative;
 	z-index: 3;
 
 	height: 54px;
 	width: 54px;
-	background-color: $color-1;
+	background-color: $bg_color;
 	border-radius: 50%;
 	margin: 10px;
 	
@@ -34,7 +33,7 @@ $animation-duration: 0.7s;
 		@include center; // mixin inside partials > _mixins.scss
 		width: 22px;
 		height: 2px;
-		background-color: $color-3;
+		background-color: $front_color;
 
 		&::before, &:after {
 			/* upper and lower lines of the menu icon */
@@ -82,7 +81,7 @@ $animation-duration: 0.7s;
 
 	circle {
 		/* circle border animation */
-		transition:stroke-dashoffset $animation-duration - 0.3s 0s;
+		transition:stroke-dashoffset 0.4s 0s;
 	}
 	&.uac-right{
 		.uac-togglebararrow-bar {
@@ -108,7 +107,7 @@ $animation-duration: 0.7s;
 		.uac-togglebararrow-bar::before {
 			/* animate arrow --> from hamburger to arrow */
 			width: 50%;
-			transition:transform $animation-duration - 0.2s, width $animation-duration - 0.2s;
+			transition:transform 0.5s, width 0.5s;
 		}
 
 		.uac-togglebararrow-bar::before {
@@ -126,7 +125,7 @@ $animation-duration: 0.7s;
 
 		circle {
 			stroke-dashoffset: 0;
-			transition:stroke-dashoffset $animation-duration - 0.3s 0.3s;
+			transition:stroke-dashoffset 0.4s 0.3s;
 		}
 		&.uac-right{
 			transform:rotate(-180deg);
@@ -140,8 +139,77 @@ $animation-duration: 0.7s;
 			}			
 		} 
 	}
+}
 
-	@include MQ(L) {
-		top: 40px;
+
+// --------------------------------
+.uac-toggle-barcircle {
+  float: left;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 68px;
+  height: 68px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px;
+  /*--- make the size fit you need ---*/ 
+  transform:scale(0.8);
+  .uac-bottom,.uac-top{
+     background: #fff;
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 36px;
+      border-radius: 2px;
+
+     transform-origin: 34px 2px;
+     transform: rotate(0deg);
+     transition: all 500ms cubic-bezier(0.8, -1.1, 0.5, 1.9);
+  }
+  .uac-top{
+    top: 19px;
+    left: 14px;
+  }
+  .uac-bottom{
+    top: 41px;
+    left: 14px;
+  }
+  path,line{ 
+    stroke: white;
+    stroke-linecap: round;
+  }
+  .uac-circle {
+    display: inline-block;
+    border-radius: 50px;
+    vertical-align: middle;
+    margin: 0 5px;
+
+    stroke-dasharray: 1 100 32 300;
+    stroke-dashoffset: 101;
+    transition: all 750ms ease;
+  }
+  	&.uac-close{
+		.uac-top{
+		transform: translateX(-4.5px) rotate(-45deg);
+		}
+		.uac-bottom{
+		transform: translateX(-4.5px) rotate(45deg);
+		}
+		.uac-circle {
+			stroke-dasharray: 1 100 190 300;
+			stroke-dashoffset: 1;
+		}
+	}
+	&.uac-dark{
+		.uac-bottom,.uac-top{
+     		background: #333;
+     	}
+     	path,line{ 
+   			 stroke: #333;
+   		}
 	}
 }
