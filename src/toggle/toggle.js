@@ -49,3 +49,24 @@ ua.directive('uaToggleBarCircle',function(){
 		}
 	}
 })
+
+ua.directive('uaToggleSwitch',function(){
+	return {
+		restrict:'EA',
+		template:function(){
+			var id = Math.floor(1+Math.random()*10000);
+			return '<div class="nb-tgl"> \
+              <input class="tgl" id="'+id+'" type="checkbox">\
+              <label class="tgl-btn" for="'+id+'" data-tg-off="OFF" data-tg-on="ON"></label> \
+            </div>'
+		},
+        replace: true,
+        scope:{},
+        link:function( $scope,elm,attrs,ctrl){
+        	var themes = ['skewed','ios','light','flat','flip']
+        	var theme = (attrs.theme && themes.indexOf(attrs.theme) != -1 )? attrs.theme : 'ios'; 
+        	elm.find('input').addClass( 'tgl-'+theme );
+
+        },
+	}
+});
