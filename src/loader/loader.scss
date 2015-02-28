@@ -1,0 +1,71 @@
+// --------------------------------------
+$loader-green: map-get($color-green,'400');
+$loader-blue: map-get($color-blue,'400');
+$loader-red: map-get($color-red,'400');
+$loader-yellow: map-get($color-pink,'400');
+
+.uac-loader-stroke {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	margin-left: -50px;
+	left: 50%;
+	top: 20%;
+	z-index: 100;
+	background-color:rgba(255,255,255,0.8);
+	// box-shadow: 0 0 6px rgba(0,0,0,0.1);
+	border-radius: 50%;
+  .circular{
+	   animation: ualoader-rotate 2s linear infinite;
+	   height: 100px;
+	   position: relative;
+	   width: 100px;
+  }
+  .path {
+  	// dash的 长度，间隙
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+    stroke:$loader-yellow;
+    animation: 
+     ualoader-dash 1.5s ease-in-out infinite,
+     ualoader-color 6s ease-in-out infinite
+    ;
+    stroke-linecap: round;
+  }
+
+}
+
+@keyframes ualoader-rotate{
+ 100%{
+  transform:rotate(360deg);
+ }
+}
+@keyframes ualoader-dash{
+ 0%{
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+ }
+ 50%{
+  stroke-dasharray: 89,200;
+  stroke-dashoffset: -35;
+ }
+ 100%{
+  stroke-dasharray: 89,200;
+  stroke-dashoffset: -124;
+ }
+}
+@keyframes ualoader-color{
+  100%, 0%{
+    stroke: $loader-red;
+  }
+  40%{
+    stroke: $loader-blue;
+  }
+  66%{
+    stroke: $loader-green;
+  }
+  80%, 90%{
+    stroke: $loader-yellow;
+  }
+}
+// ==============================================
