@@ -214,19 +214,19 @@ $animation-duration: 0.7s;
 	}
 }
 // ----------------------------------
-// ---------------------------- toggle -----
-.tgl{
+// ---------------------------- http://codepen.io/mallendeo/pen/eLIiG -----
+.uac-toggle-switch{
   display: none;
   // add default box-sizing for this scope
   &, &:after, &:before,
   & *, & *:after, & *:before,
-  & + .tgl-btn{
+  & + .uac-toggle-switch-btn{
     box-sizing: border-box;
     &::selection{
       background: none;
     }
   }
-  + .tgl-btn{
+  + .uac-toggle-switch-btn{
     outline: 0;
     display: block;
     width: 4em;
@@ -249,15 +249,15 @@ $animation-duration: 0.7s;
     }
   }
   &:checked{
-    + .tgl-btn{
+    + .uac-toggle-switch-btn{
       &:after{
         left: 50%;
       }
     }
   }
 }
-.tgl-ios{
-  + .tgl-btn{
+.uac-toggle-switch-ios{
+  + .uac-toggle-switch-btn{
     background: #fbfbfb;
     border-radius: 2em;
     padding: 2px;
@@ -283,7 +283,7 @@ $animation-duration: 0.7s;
     }
   }
   &:checked{
-    + .tgl-btn{
+    + .uac-toggle-switch-btn{
       background: #86d993;
       &:active{
         box-shadow: none;
@@ -295,8 +295,8 @@ $animation-duration: 0.7s;
   }
 }
 // themes
-.tgl-light{
-	+ .tgl-btn{
+.uac-toggle-switch-light{
+	+ .uac-toggle-switch-btn{
 		background: #f0f0f0;
 		border-radius: 2em;
 		padding: 2px;
@@ -308,13 +308,13 @@ $animation-duration: 0.7s;
 		}
 	}
 	&:checked{
-		+ .tgl-btn{
+		+ .uac-toggle-switch-btn{
 			background: #9FD6AE;
 		}
 	}
 }
-.tgl-skewed{
-	+ .tgl-btn{
+.uac-toggle-switch-skewed{
+	+ .uac-toggle-switch-btn{
 		overflow: hidden;
 		transform: skew(-10deg);
 		backface-visibility: hidden;
@@ -350,7 +350,7 @@ $animation-duration: 0.7s;
 		}
 	}
 	&:checked{
-		+ .tgl-btn{
+		+ .uac-toggle-switch-btn{
 			background: #86d993;
 			&:before{
 				left: -100%;
@@ -366,8 +366,8 @@ $animation-duration: 0.7s;
 		}
 	}
 }
-.tgl-flat{
-	+ .tgl-btn{
+.uac-toggle-switch-flat{
+	+ .uac-toggle-switch-btn{
 		padding: 2px;
 		transition: all .2s ease;
 		background: #fff;
@@ -381,7 +381,7 @@ $animation-duration: 0.7s;
 		}
 	}
 	&:checked{
-		+ .tgl-btn{
+		+ .uac-toggle-switch-btn{
 			border: 4px solid #7FC6A6;
 			&:after{
 				left: 50%;
@@ -391,8 +391,8 @@ $animation-duration: 0.7s;
 	}
 }
 
-.tgl-flip{
-	+ .tgl-btn{
+.uac-toggle-switch-flip{
+	+ .uac-toggle-switch-btn{
 		padding: 2px;
 		transition: all .2s ease;
 		font-family: sans-serif;
@@ -429,7 +429,7 @@ $animation-duration: 0.7s;
 		}
 	}
 	&:checked{
-		+ .tgl-btn{
+		+ .uac-toggle-switch-btn{
 			&:before{
 				transform: rotateY(180deg);
 			}	

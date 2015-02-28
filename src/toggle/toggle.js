@@ -11,7 +11,7 @@ ua.directive('uaToggleBarArrow',function(){
 		scope:{},
 		link:function($scope,elm,attrs,ctrl){
 			var isLateralNavAnimating = false;
-			var direction = (attrs.direction && attrs.direction == 'right') ? 'uac-right' : 'uac-left';
+			var direction = (attrs.uaDirection && attrs.uaDirection == 'right') ? 'uac-right' : 'uac-left';
 
 			elm.addClass(direction);
 
@@ -37,7 +37,7 @@ ua.directive('uaToggleBarCircle',function(){
 		scope:{},
 		link:function($scope,elm,attrs,ctrl){
 			var isLateralNavAnimating = false;
-			var theme = (attrs.theme && attrs.theme == 'dark') ? 'uac-dark' : 'uac-light';
+			var theme = (attrs.uaTheme && attrs.uaTheme == 'dark') ? 'uac-dark' : 'uac-light';
 
 			elm.addClass(theme);
 
@@ -55,17 +55,17 @@ ua.directive('uaToggleSwitch',function(){
 		restrict:'EA',
 		template:function(){
 			var id = Math.floor(1+Math.random()*10000);
-			return '<div class="nb-tgl"> \
-              <input class="tgl" id="'+id+'" type="checkbox">\
-              <label class="tgl-btn" for="'+id+'" data-tg-off="OFF" data-tg-on="ON"></label> \
+			return '<div class="uac-toggle-switch-wraper"> \
+              <input class="uac-toggle-switch" id="'+id+'" type="checkbox">\
+              <label class="uac-toggle-switch-btn" for="'+id+'" data-tg-off="OFF" data-tg-on="ON"></label> \
             </div>'
 		},
         replace: true,
         scope:{},
         link:function( $scope,elm,attrs,ctrl){
         	var themes = ['skewed','ios','light','flat','flip']
-        	var theme = (attrs.theme && themes.indexOf(attrs.theme) != -1 )? attrs.theme : 'ios'; 
-        	elm.find('input').addClass( 'tgl-'+theme );
+        	var theme = (attrs.uaTheme && themes.indexOf(attrs.uaTheme) != -1 )? attrs.uaTheme : 'ios'; 
+        	elm.find('input').addClass( 'uac-toggle-switch-'+theme );
 
         },
 	}

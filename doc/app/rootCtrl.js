@@ -16,10 +16,16 @@ app.controller('navCtrl',['$scope',function($scope){
 		'toggle',
 		'loader',
 		'dropdown',
+		'date-picker',
+		'dialog',
 		'button',
 		'link',
 		'slider',
-		'date-picker',
+		'inputBox',
+		'checkbox',
+		'radioButton',
+		'pageTransition',
+		
 	];
 
 	this.services = [
