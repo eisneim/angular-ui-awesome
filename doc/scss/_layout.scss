@@ -24,6 +24,14 @@ a{
 		color:inherit;
 	}
 }
+// ------------------ initial load animation  ------
+body{
+	transition: opacity 0.5s;
+}
+.hide{
+	opacity: 0;
+	visibility: hidden;
+}
 
 // doc styles here:
 #ua-doc-side-nav{

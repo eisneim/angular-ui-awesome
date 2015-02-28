@@ -7,4 +7,12 @@
 			color:$c-main-light;
 		}
 	}
+	.gh-btns{
+		li{
+			display:inline-block;
+			iframe{
+				width:120px;
+			}
+		}
+	}
 }
