@@ -53,7 +53,7 @@ ua.directive('uaToggleBarCircle',function(){
 ua.directive('uaToggleSwitch',function(){
 	return {
 		restrict:'EA',
-		template:function(){
+		template:function(elm,attr){
 			var id = Math.floor(1+Math.random()*10000);
 			return '<div class="uac-toggle-switch-wraper"> \
               <input class="uac-toggle-switch" id="'+id+'" type="checkbox">\

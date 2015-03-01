@@ -7,6 +7,10 @@ angular.module('ua-doc').constant('COMDATA', [
     "name": "loader",
     "path": 'app/comp/loader.html',
     "url": ""
+  },{
+    "name": "link",
+    "path": 'app/comp/link.html',
+    "url": ""
   }
 
 ]);
