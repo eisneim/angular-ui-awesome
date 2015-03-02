@@ -1,9 +1,11 @@
 'use strict';
 
-var app = angular.module('ua-doc',['ngRoute','ngAnimate','ngUiAwesome']);
+var app = angular.module('ua-doc',['ngRoute','ngUiAwesome']);
 
 app.run([function(){
 	document.getElementsByTagName('html')[0].classList.remove('no-js');
+	document.body.classList.remove('hide');
+
 }]);
 
 app.config(function($routeProvider,$locationProvider){

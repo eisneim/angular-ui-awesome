@@ -10,6 +10,24 @@
 var ua = angular.module('ngUiAwesome',[]);
 
 // app.run()
+ua.directive('uaLink',function(){
+	return {
+		restrict:'E',
+		replace:true,
+		transclude:true,
+		template:function(elm,attr){
+			// console.log(attr)
+			var atribute = '';
+			if(attr['hover']) atribute+= 'data-hover="'+ attr['hover'] +'"';
+			var theme = attr['uaTheme'] == 'light'?'uac-light':'uac-dark' 
+
+			return '<a class="ua-link '+theme+'"><span '+atribute+' ng-transclude=""></span></a>';
+		},
+		link:function($scope,elm,attr){
+			
+		}
+	}
+});
 
 ua.factory('$uaLoader',function(){
   var tpl = '<div class="uac-loader uac-loader-stroke"> \
@@ -132,7 +150,7 @@ ua.directive('uaToggleBarCircle',function(){
 ua.directive('uaToggleSwitch',function(){
 	return {
 		restrict:'EA',
-		template:function(){
+		template:function(elm,attr){
 			var id = Math.floor(1+Math.random()*10000);
 			return '<div class="uac-toggle-switch-wraper"> \
               <input class="uac-toggle-switch" id="'+id+'" type="checkbox">\

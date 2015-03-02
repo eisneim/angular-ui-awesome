@@ -18,11 +18,19 @@ a{
 	text-decoration: none;
 	color: $c-main-light;
 	transition: color 0.3s ease-out;
-	&:hover,&:focus{
+	&:hover,&:focus,.active > &{
 		outline: none;
-		border:none;
+		// border:none;
 		color:inherit;
 	}
+}
+// ------------------ initial load animation  ------
+body{
+	transition: opacity 0.5s;
+}
+.hide{
+	opacity: 0;
+	visibility: hidden;
 }
 
 // doc styles here:
@@ -39,14 +47,31 @@ a{
 		li{
 			transition: font-size 0.2s ease-out;
 			padding: 0.1em 0;
-			&:hover{
+			&:hover,&.active{
 				font-size:1.5em;
 			}
 		}
 	}
+	.ua-side-nav-title{
+		cursor: pointer;
+	}
 }
 
 #ua-doc-main{
-	padding: 1em 1.5em;
-	overflow-y: auto;
+	position: relative;
+	height:100%;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.3s ease, visibility 0s; 
+	&.hidding{
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0s 0.4s;
+	}
+	&>div{
+		padding: 1em 1.5em;
+		overflow-y: auto;
+		width:100%;
+		height:100%;
+	}
 }

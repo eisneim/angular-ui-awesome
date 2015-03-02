@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/main.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="lib/prism/prism.default.css">
   	
 	<title>angular-ui-awesome</title>
 </head>
-<body class="grid">
+<body class="grid hide">
 	
 	<nav id="ua-doc-side-nav" ng-controller="navCtrl as navCtrl">
 		<!-- <ul class="ua-side-nav-list">
@@ -18,27 +19,31 @@
 		</ul> -->
 		<!-- <a href="#/" id="ua-doc-logo">LOGO</a> -->
 
-		<h2>Components</h2>
+		<h2 class="ua-side-nav-title">Components</h2>
 		<ul class="ua-side-nav-list">
-			<li ng-repeat="cc in navCtrl.components">
+			<li ng-repeat="cc in navCtrl.components" ng-class="{active:navCtrl.ui.selectedComp == cc}">
 				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
 			</li>
 		</ul>
 
-		<h2>Services</h2>
+		<h2 class="ua-side-nav-title">Services</h2>
 		<ul class="ua-side-nav-list">
-			<li ng-repeat="cc in navCtrl.services">
+			<li ng-repeat="cc in navCtrl.services" ng-class="{active:navCtrl.ui.selectedComp == cc}">
 				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
 			</li>
 		</ul>
 
 	</nav>
-	<div id="ua-doc-main" ng-view="" class="fluid"></div>
+	<div id="ua-doc-main" class="fluid">
+		<div ng-view=""></div>
+	</div>
 
 
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-animate/angular-animate.js"></script>
 <script src="vendor/angular-route/angular-route.js"></script>
+<!-- ------ code hilight ------- -->
+<script src="lib/prism/prism.min.js"></script>
 <!-- ---------- ui awesome ------ -->
 <script src="app/angular-ui-awesome.js"></script>
 
