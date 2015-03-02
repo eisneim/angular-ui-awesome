@@ -7,11 +7,12 @@ ua.directive('uaLink',function(){
 			// console.log(attr)
 			var atribute = '';
 			if(attr['hover']) atribute+= 'data-hover="'+ attr['hover'] +'"';
+			var theme = attr['uaTheme'] == 'light'?'uac-light':'uac-dark' 
 
-			return '<a class="ua-link"><span '+atribute+' ng-transclude></span></a>';
+			return '<a class="ua-link '+theme+'"><span '+atribute+' ng-transclude=""></span></a>';
 		},
 		link:function($scope,elm,attr){
-
+			
 		}
 	}
 });

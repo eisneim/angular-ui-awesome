@@ -50,12 +50,12 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 
 	this.components = [
 		'toggle',
+		'link',
 		'loader',
 		'dropdown',
 		'date-picker',
 		'dialog',
 		'button',
-		'link',
 		'slider',
 		'inputBox',
 		'checkbox',
