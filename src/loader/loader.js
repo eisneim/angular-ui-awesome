@@ -1,22 +1,31 @@
 
 ua.factory('$uaLoader',function(){
-  var tpl = '<div class="uac-loader uac-loader-stroke"> \
+  var tpls = {};
+  tpls.stroke = '<div class="uac-loader uac-loader-stroke" id="__id__"> \
 	      <svg class="circular"> \
 	        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/> \
 	      </svg> \
 	    </div>';
+  tpls.liquidSquare = '<div class="uac-loader uac-loader-liquidsquare" id="__id__"> <div></div> <div></div> <div></div><div></div> </div>';
+
+  
   var count = 0;
 
   function Loader(option){
     this.elm = null;
-    if(!option) var option = {};
-
+    if(!option) var option = {
+      theme:'stroke',
+    };
     var $container = option.container || document.body;
+    var tpl = tpls[ option.theme ] || tpls['stroke'];
 
     this.id = idGen();
 
 
-    this.elm = angular.element( tpl.replace('__id__',this.id) )[0];
+    this.elm = angular.element( 
+      tpl.replace('__id__',this.id)
+      .replace('__className__',option.className || '') 
+    )[0];
     $container.appendChild(this.elm);
 
   }
@@ -50,18 +59,3 @@ ua.factory('$uaLoader',function(){
 });
 
 
-ua.directive('uaLoaderCircle',['$uaLoader',function($uaLoader){
-	return {
-		restric:'EA',
-		template:'<div class="ua-loader-circle" id="__id__"> \
-	      <svg class="circular"> \
-	        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/> \
-	      </svg> \
-	    </div>',
-		replace:true,
-		scope:{},
-		link:function($scope,elm,attrs,ctrl){
-			
-		}
-	}
-}])

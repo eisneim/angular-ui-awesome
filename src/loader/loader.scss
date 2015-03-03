@@ -1,3 +1,11 @@
+.uac-loader{
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  z-index: 100;
+
+}
+
 // --------------------------------------
 $loader-green: map-get($color-green,'400');
 $loader-blue: map-get($color-blue,'400');
@@ -5,13 +13,9 @@ $loader-red: map-get($color-red,'400');
 $loader-yellow: map-get($color-pink,'400');
 
 .uac-loader-stroke {
-	position: absolute;
 	width: 100px;
 	height: 100px;
 	margin-left: -50px;
-	left: 50%;
-	top: 20%;
-	z-index: 100;
 	background-color:rgba(255,255,255,0.8);
 	// box-shadow: 0 0 6px rgba(0,0,0,0.1);
 	border-radius: 50%;
@@ -68,4 +72,82 @@ $loader-yellow: map-get($color-pink,'400');
     stroke: $loader-yellow;
   }
 }
-// ==============================================
+// ========================== liquid square ====================----------------
+// http://codepen.io/TimPietrusky/pen/Indcm?editors=010
+$liquidsquare-alpha: 8em;
+$liquidsquare-beta: 50%;
+$liquidsquare-gamma: 2.25s;
+$liquidsquare-delta: .75;
+
+$color-alpha: rgba(#e74c3c, $liquidsquare-delta);
+$color-beta: rgba(#e67e22, $liquidsquare-delta);
+$color-gamma: rgba(#8e44ad, $liquidsquare-delta);
+$color-delta: rgba(#2980d9, $liquidsquare-delta);
+
+.uac-loader-liquidsquare {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: $liquidsquare-alpha;
+  height: $liquidsquare-alpha;
+  margin: (-$liquidsquare-alpha / 2) 0 0 (-$liquidsquare-alpha / 2);
+  overflow: hidden;
+  background: rgba(#000, .35);
+  // border-radius: 50%;
+  
+  > div {
+    position: absolute;
+    width: $liquidsquare-alpha;
+    height: $liquidsquare-alpha;
+    animation: liquidsquare-alpha $liquidsquare-gamma linear infinite forwards;
+    background: $color-alpha;
+    
+    &:nth-child(1) {
+      top: -$liquidsquare-beta;
+      left: -$liquidsquare-beta;
+    }
+      
+    &:nth-child(2) {
+      top: -$liquidsquare-beta;
+      right: -$liquidsquare-beta;
+    }
+    
+    &:nth-child(3) {
+      bottom: -$liquidsquare-beta;
+      right: -$liquidsquare-beta;
+    }
+      
+    &:nth-child(4) {
+      bottom: -$liquidsquare-beta;
+      left: -$liquidsquare-beta;
+    }
+  }
+}
+
+@keyframes liquidsquare-alpha {
+  0% {
+    transform:rotate(0);
+    background: $color-alpha;
+  }
+  
+  25% {
+    background: $color-beta;
+  }
+  
+  50% {
+    border-radius: 50%;
+    background: $color-gamma;
+  }
+  
+  75% {
+    background: $color-delta;
+  }
+  
+  100% {
+    transform:rotate(360deg);
+    background: $color-alpha;
+  }
+}
+// ---------------========== win8 ================================== 
+// http://codepen.io/janrubio/pen/DusIE?editors=110
+
