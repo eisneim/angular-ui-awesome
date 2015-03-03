@@ -1,4 +1,4 @@
-a.ua-link{
+.ua-link{
 	position: relative;
 	display: inline-block;
 	outline: none;
@@ -9,7 +9,7 @@ a.ua-link{
 	}
 }
 /* Effect 1: Brackets */
-a.ua-link-brucket{
+.ua-link-brucket{
 	&::before,&::after{
 		display: inline-block;
 		opacity: 0;
@@ -36,7 +36,7 @@ a.ua-link-brucket{
 
 /* Effect 2: 3D rolling links, idea from http://hakim.se/thoughts/rolling-links */
 $ua-link-rolling-bg: rgba(0,0,0,0.1);//#2195de;
-a.ua-link-rolling{
+.ua-link-rolling{
 	line-height: 25px;
 	perspective: 1000px;
 	&>span{
@@ -67,7 +67,7 @@ a.ua-link-rolling{
 
 
 /* Effect 3: bottom line slides/fades in */
-a.ua-link-lineup{
+.ua-link-lineup{
 	// padding: 0.5em 0;
 	&::after{
 		position: absolute;
@@ -90,7 +90,7 @@ a.ua-link-lineup{
 }
 
 /* Effect 4: bottom border enlarge */
-a.ua-link-linedown{
+.ua-link-linedown{
 	padding: 0 0 0.3em;
 	&::after{
 		position: absolute;
@@ -115,7 +115,7 @@ a.ua-link-linedown{
 
 
 /* Effect 5: same word slide in */
-a.ua-link-slideup{
+.ua-link-slideup{
 	overflow: hidden;
 	padding: 0 4px;
 	height: 1em;
@@ -139,7 +139,7 @@ a.ua-link-slideup{
 }
 
 /* Effect 6: same word slide in and border bottom */
-a.ua-link-linedrop{
+.ua-link-linedrop{
 	margin: 0 10px;
 	padding:0 1em 0.2em;
 	&::before{
@@ -175,7 +175,7 @@ a.ua-link-linedrop{
 
 
 /* Effect 7: second border slides up */
-a.ua-link-lineraise{
+.ua-link-lineraise{
 	padding: 0 0.5em 0.3em;
 	&::before,&::after{
 		position: absolute;
@@ -205,7 +205,7 @@ a.ua-link-lineraise{
 
 
 /* Effect 8: border slight translate */
-a.ua-link-border{
+.ua-link-border{
 	padding: 0.5em 2em;
 	&::before,&::after{
 		position: absolute;
@@ -235,7 +235,7 @@ a.ua-link-border{
 }
 
 /* Effect 9: second text and borders */
-a.ua-link-subtext{
+.ua-link-subtext{
 	// margin: 0 20px;
 	padding: 0 2em;
 	&::before,&::after{
@@ -288,7 +288,7 @@ a.ua-link-subtext{
 
 
 /* Effect 10: reveal, push out */
-a.ua-link-push{
+.ua-link-push{
 	z-index: 1;
 	overflow: hidden;
 	// margin: 0 15px;
@@ -328,7 +328,7 @@ a.ua-link-push{
 
 /* Effect 11: text fill based on Lea Verou's animation http://dabblet.com/gist/6046779 */
 $ua-link-textfill-color: #000;
-a.ua-link-textfill{
+.ua-link-textfill{
 	padding: 0.3em 0;
 	border-top: 2px solid rgba(0,0,0,0.2);
 	text-shadow: none;
@@ -352,7 +352,7 @@ a.ua-link-textfill{
 }
 
 /* Effect 12: circle */
-a.ua-link-circle{
+.ua-link-circle{
 	&::before,&::after{
 		position: absolute;
 		top: 50%;
@@ -382,7 +382,7 @@ a.ua-link-circle{
 
 /* Effect 13: three circles */
 $ua-link-dots-color:rgba(0,0,0,0.2);
-a.ua-link-dots{
+.ua-link-dots{
 	transition: color 0.3s;
 	&::before{
 		position: absolute;
@@ -406,7 +406,7 @@ a.ua-link-dots{
 }
 
 /* Effect 14: border switch */
-a.ua-link-switchborder{
+.ua-link-switchborder{
 	padding: 0 20px;
 	height: 45px;
 	line-height: 45px;
@@ -448,7 +448,7 @@ a.ua-link-switchborder{
 }
 
 /* Effect 15: scale down, reveal */
-a.ua-link-shrink{
+.ua-link-shrink{
 	color: rgba(0,0,0,0.2);
 	font-weight: bolder;
 	font-family: arial,time-new-roman;
@@ -467,7 +467,7 @@ a.ua-link-shrink{
 }
 
 /* Effect 16: fall down */
-a.ua-link-fall{
+.ua-link-fall{
 	color: #6f8686;
 	text-shadow: 0 0 1px rgba(111,134,134,0.3);
 	&::before{
@@ -490,301 +490,201 @@ a.ua-link-fall{
 
 
 /* Effect 17: move up fade out, push border */
-.cl-effect-17 a {
+.ua-link-pushup{
 	color: #10649b;
 	text-shadow: none;
 	padding: 10px 0;
-}
-
-.cl-effect-17 a::before {
-	color: #fff;
-	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	content: attr(data-hover);
-	position: absolute;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	pointer-events: none;
-}
-
-.cl-effect-17 a::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 2px;
-	background: #fff;
-	opacity: 0;
-	-webkit-transform: translateY(5px);
-	-moz-transform: translateY(5px);
-	transform: translateY(5px);
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	pointer-events: none;
-}
-
-.cl-effect-17 a:hover::before,
-.cl-effect-17 a:focus::before {
-	opacity: 0;
-	-webkit-transform: translateY(-2px);
-	-moz-transform: translateY(-2px);
-	transform: translateY(-2px);
-}
-
-.cl-effect-17 a:hover::after,
-.cl-effect-17 a:focus::after {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	transform: translateY(0px);
+	font-weight: bold;
+	font-family: sans-serif,arial;
+	&::before{
+		color: #000;
+		text-shadow: 0 0 1px rgba(255,255,255,0.3);
+		content: attr(data-hover);
+		position: absolute;
+		transition: transform 0.3s, opacity 0.3s;
+		pointer-events: none;	
+	}
+	&::after{
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 2px;
+		background: rgba(0,0,0,0.2);
+		opacity: 0;
+		transform: translateY(5px);
+		transition: transform 0.3s, opacity 0.3s;
+		pointer-events: none;
+	}
+	&:hover,&:focus{
+		&::before{
+			opacity: 0;
+			transform: translateY(-2px);	
+		}
+		&::after{
+			opacity: 1;
+			transform: translateY(0px);		
+		}
+	}
 }
 
 /* Effect 18: cross */
-.cl-effect-18 {
-	position: relative;
+.ua-link-cross{
+	// position: relative;
 	z-index: 1;
-}
-
-.cl-effect-18 a {
 	padding: 0 5px;
-	color: #b4770d;
-	font-weight: 700;
-	-webkit-transition: color 0.3s;
-	-moz-transition: color 0.3s;
+	color:rgba(0,0,0,0.5);
+	font-weight: bold;
 	transition: color 0.3s;
+	&::before,&::after{
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 50%;
+		height: 2px;
+		margin-top: -1px;
+		background-color: rgba(0,0,0,0.2) ;
+		content: '';
+		z-index: -1;
+		-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+		-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+		transition: transform 0.3s, opacity 0.3s;
+		pointer-events: none;
+	}
+	&::before{
+		transform: translateY(-20px);
+	}
+	&::after{
+		transform: translateY(20px);
+	}
+	&:hover,&:focus{
+		color: #000;
+		&::before,&::after{
+			opacity: 0.7;
+		}
+		&::before{
+			transform: rotate(45deg);
+		}
+		&::after{
+			transform: rotate(-45deg);
+		}
+	}
+
 }
 
-.cl-effect-18 a::before,
-.cl-effect-18 a::after {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: 50%;
-	height: 2px;
-	margin-top: -1px;
-	background: #b4770d;
-	content: '';
-	z-index: -1;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	pointer-events: none;
-}
-
-.cl-effect-18 a::before {
-	-webkit-transform: translateY(-20px);
-	-moz-transform: translateY(-20px);
-	transform: translateY(-20px);
-}
-
-.cl-effect-18 a::after {
-	-webkit-transform: translateY(20px);
-	-moz-transform: translateY(20px);
-	transform: translateY(20px);
-}
-
-.cl-effect-18 a:hover,
-.cl-effect-18 a:focus {
-	color: #fff;
-}
-
-.cl-effect-18 a:hover::before,
-.cl-effect-18 a:hover::after,
-.cl-effect-18 a:focus::before,
-.cl-effect-18 a:focus::after {
-	opacity: 0.7;
-}
-
-.cl-effect-18 a:hover::before,
-.cl-effect-18 a:focus::before {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	transform: rotate(45deg);
-}
-
-.cl-effect-18 a:hover::after,
-.cl-effect-18 a:focus::after {
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
 
 /* Effect 19: 3D side */
-.cl-effect-19 a {
+.ua-link-slide3d{
 	line-height: 2em;
-	margin: 15px;
 	-webkit-perspective: 800px;
 	-moz-perspective: 800px;
 	perspective: 800px;
-	width: 200px;
-}
-
-.cl-effect-19 a span {
+	// width: 200px;
 	position: relative;
-	display: inline-block;
-	width: 100%;
-	padding: 0 14px;
-	background: #e35041;
-	-webkit-transition: -webkit-transform 0.4s, background 0.4s;
-	-moz-transition: -moz-transform 0.4s, background 0.4s;
-	transition: transform 0.4s, background 0.4s;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform-origin: 50% 50% -100px;
-	-moz-transform-origin: 50% 50% -100px;
-	transform-origin: 50% 50% -100px;
-}
-
-.csstransforms3d .cl-effect-19 a span::before {
-	position: absolute;
-	top: 0;
-	left: 100%;
-	width: 100%;
-	height: 100%;
-	background: #b53a2d;
-	content: attr(data-hover);
-	-webkit-transition: background 0.4s;
-	-moz-transition: background 0.4s;
-	transition: background 0.4s;
-	-webkit-transform: rotateY(90deg);
-	-moz-transform: rotateY(90deg);
-	transform: rotateY(90deg);
-	-webkit-transform-origin: 0 50%;
-	-moz-transform-origin: 0 50%;
-	transform-origin: 0 50%;
-	pointer-events: none;
-}
-
-.cl-effect-19 a:hover span,
-.cl-effect-19 a:focus span {
-	background: #b53a2d;
-	-webkit-transform: rotateY(-90deg);
-	-moz-transform: rotateY(-90deg);
-	transform: rotateY(-90deg);
-}
-
-.csstransforms3d .cl-effect-19 a:hover span::before,
-.csstransforms3d .cl-effect-19 a:focus span::before {
-	background: #ef5e50;	
+	&>span{
+		position: relative;
+		display: inline-block;
+		padding: 0 24px;
+		background: rgba(0,0,0,0.1);
+		transition: transform 0.4s, background 0.4s;
+		transform-style: preserve-3d;
+		transform-origin: 50% 50% -50px;
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.15);
+			content: attr(data-hover);
+			transition: background 0.4s;
+			transform: rotateY(90deg);
+			transform-origin: 0 50%;
+			pointer-events: none;
+		}
+	}
+	&:hover,&:focus{
+		&>span{
+			background: rgba(0,0,0,0.2);
+			-webkit-transform: rotateY(-90deg);
+			-moz-transform: rotateY(-90deg);
+			transform: rotateY(-90deg);		
+			&::before{
+				background: rgba(0,0,0,0.2);	
+			}
+		}
+	}
 }
 
 /* Effect 20: 3D side */
-.cl-effect-20 a {
+.ua-link-flip3d{
 	line-height: 2em;
-	-webkit-perspective: 800px;
-	-moz-perspective: 800px;
 	perspective: 800px;
-}
-
-.cl-effect-20 a span {
-	position: relative;
-	display: inline-block;
-	padding: 3px 15px 0;
-	background: #587285;
-	box-shadow: inset 0 3px #2f4351;
-	-webkit-transition: background 0.6s;
-	-moz-transition: background 0.6s;
-	transition: background 0.6s;
-	-webkit-transform-origin: 50% 0;
-	-moz-transform-origin: 50% 0;
-	transform-origin: 50% 0;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform-origin: 0% 50%;
-	-moz-transform-origin: 0% 50%;
-	transform-origin: 0% 50%;
-}
-
-.cl-effect-20 a span::before {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	color: #2f4351;
-	content: attr(data-hover);
-	-webkit-transform: rotateX(270deg);
-	-moz-transform: rotateX(270deg);
-	transform: rotateX(270deg);
-	-webkit-transition: -webkit-transform 0.6s;
-	-moz-transition: -moz-transform 0.6s;
-	transition: transform 0.6s;
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	transform-origin: 0 0;
-	pointer-events: none;
-}
-
-.cl-effect-20 a:hover span,
-.cl-effect-20 a:focus span {
-	background: #2f4351;
-}
-
-.cl-effect-20 a:hover span::before,
-.cl-effect-20 a:focus span::before {
-	-webkit-transform: rotateX(10deg);	
-	-moz-transform: rotateX(10deg);
-	transform: rotateX(10deg);
+	&>span{
+		position: relative;
+		display: inline-block;
+		padding: 3px 1.5em 0;
+		background: rgba(0,0,0,0.1);
+		box-shadow: inset 0 3px #2f4351;
+		transition: background 0.6s;
+		transform-origin: 50% 0;
+		transform-style: preserve-3d;
+		transform-origin: 0% 50%;
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.8);
+			color: #fff;
+			content: attr(data-hover);
+			transform: rotateX(270deg);
+			transition: transform 0.6s;
+			transform-origin: 0 0;
+			pointer-events: none;
+		}
+	}
+	&:hover,&:focus{
+		// background: #;	
+		&>span::before{
+			transform: rotateX(10deg);
+		}
+	}
 }
 
 /* Effect 21: borders slight translate */
-.cl-effect-21 a {
+.ua-link-borderin{
 	padding: 10px;
 	color: #237546;
 	font-weight: 700;
 	text-shadow: none;
-	-webkit-transition: color 0.3s;
-	-moz-transition: color 0.3s;
 	transition: color 0.3s;
-}
-
-.cl-effect-21 a::before,
-.cl-effect-21 a::after {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background: #fff;
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
-
-.cl-effect-21 a::before {
-	top: 0;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
-
-.cl-effect-21 a::after {
-	bottom: 0;
-	-webkit-transform: translateY(10px);
-	-moz-transform: translateY(10px);
-	transform: translateY(10px);
-}
-
-.cl-effect-21 a:hover,
-.cl-effect-21 a:focus {
-	color: #fff;
-}
-
-.cl-effect-21 a:hover::before,
-.cl-effect-21 a:focus::before,
-.cl-effect-21 a:hover::after,
-.cl-effect-21 a:focus::after {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	transform: translateY(0px);
+	&::before,&::after{
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: rgba(0,0,0,0.2);
+		content: '';
+		opacity: 0;
+		transition: opacity 0.3s, transform 0.3s;
+		transform: translateY(-10px);
+	}
+	&::before{
+		top: 0;
+		transform: translateY(-10px);
+	}
+	&::after{
+		bottom: 0;
+		transform: translateY(10px);
+	}
+	&:hover,&:focus{
+		color: rgba(0,0,0,0.2);
+		&::before,&::after{
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
 }
