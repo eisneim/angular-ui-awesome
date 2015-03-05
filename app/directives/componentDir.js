@@ -30,6 +30,15 @@ app.directive('highlight',function(){
 app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 	return function($scope,elm,attrs){
 		var circleContainer = document.getElementById('ua-loader-stroke');
-		var circleLoader = $uaLoader({container: circleContainer});
+		var circleLoader = $uaLoader({
+			container: circleContainer,
+		});
+
+		var liquidsquare = $uaLoader({
+			container: document.getElementById('ua-loader-liquidsquare'),
+			theme:'liquidSquare',
+		});
+		
+
 	}
 }])

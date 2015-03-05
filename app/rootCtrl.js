@@ -52,6 +52,7 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 		'toggle',
 		'link',
 		'loader',
+		'words',
 		'dropdown',
 		'date-picker',
 		'dialog',

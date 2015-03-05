@@ -11,6 +11,11 @@ angular.module('ua-doc').constant('COMDATA', [
     "name": "link",
     "path": 'app/comp/link.html',
     "url": ""
+  },{
+    "name": "words",
+    "path": 'app/comp/words.html',
+    "url": ""
   }
+
 
 ]);
