@@ -8,7 +8,6 @@ ua.factory('$uaLoader',function(){
 	    </div>';
   tpls.liquidSquare = '<div class="uac-loader uac-loader-liquidsquare" id="__id__"> <div></div> <div></div> <div></div><div></div> </div>';
 
-  
   var count = 0;
 
   function Loader(option){
@@ -20,7 +19,6 @@ ua.factory('$uaLoader',function(){
     var tpl = tpls[ option.theme ] || tpls['stroke'];
 
     this.id = idGen();
-
 
     this.elm = angular.element( 
       tpl.replace('__id__',this.id)

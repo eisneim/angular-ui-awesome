@@ -1,0 +1,36 @@
+<style>
+	.demo-itmes h2{
+		font-size: 40px;
+	}
+</style>
+<div class="ua-demo-words" >
+	<header>
+		<coding lan="markup">
+I'm good at &lt;ua-words data-words="design||| parkour |||webDev ||| programming">&lt;/ua-words>
+I'm good at &lt;ua-words data-words="design||| parkour |||webDev ||| programming" ua-theme="rotate" >&lt;/ua-words>
+...
+&lt;!-- available atributes: -->
+ua-theme , ua-duration
+		</coding>
+	</header><br/>
+	<div class="demo-itmes">
+		<h2>
+			(rotate)I'm good at 
+			<ua-words 
+				data-words=" design||| parkour |||webDev ||| programming ||| motionGraphics"
+			></ua-words>
+		</h2>
+		<h2>
+			(loading)I'm good at 
+			<ua-words ua-theme="loading"
+				data-words=" design||| parkour |||webDev ||| programming ||| motionGraphics"
+			></ua-words>
+		</h2>
+		<h2>
+			(slide)I'm good at 
+			<ua-words ua-theme="slide"
+				data-words=" design||| parkour |||webDev ||| programming ||| motionGraphics"
+			></ua-words>
+		</h2>
+	</div>
+</div>

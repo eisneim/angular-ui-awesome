@@ -1,0 +1,170 @@
+.uac-words{
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	b {
+		display: inline-block;
+		position: absolute;
+		white-space: nowrap;
+		left: 0;
+		top: 0;
+
+		&.uac-visible {
+			position: relative;
+		}
+	}
+}
+// -----------------------rotate----------------------
+.uac-words.uac-words-rotate{
+	perspective:300px;
+	b{
+		opacity:0;
+		transform-origin: 50% 100%;
+		transform: rotateX(180deg);
+		&.uac-visible{
+			opacity:1;
+			transform: rotateX(0deg);
+			animation: uac-words-rotatein 1.2s linear;
+		}
+		&.uac-hidden {
+			transform:rotateX(180deg);
+			animation:uac-words-rotateout 1.2s linear;
+		}
+	}
+}
+@keyframes uac-words-rotatein  {
+	0% {
+		transform:rotateX(180deg);
+		opacity: 0;
+	}
+
+	35% {
+		transform:rotateX(120deg);
+		opacity: 0;
+	}
+
+	65% {
+		opacity: 0;
+	}
+
+	100% {
+		transform:rotateX(360deg);
+		opacity: 1;
+	}
+}
+@keyframes uac-words-rotateout {
+	0% {
+		transform:rotateX(0deg);
+		opacity: 1;
+	}
+
+	35% {
+		transform:rotateX(-40deg);
+		opacity: 1;
+	}
+
+	65% {
+		opacity: 0;
+	}
+
+	100% {
+		transform:rotateX(180deg);
+		opacity: 0;
+	}
+}
+// -------------------loading bar--------------------------
+.uac-words.uac-words-loading{
+	// padding: .2em 0;
+	overflow: hidden;
+	padding-bottom: 0.2em;
+	vertical-align: top;
+	&::after {
+		/* loading bar */
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 3px;
+		width: 0;
+		background: map-get($color-blue,'300');
+		z-index: 2;
+		transition:width .3s -0.1s;
+	}
+	&.uac-loading::after {
+		width: 100%;
+		transition:width 4s;
+	}
+	b{
+		// top: .2em;
+		opacity: 0;
+		transition: opacity .3s;
+
+		&.uac-visible {
+			opacity: 1;
+			top: 0;
+		}
+	}
+}
+
+// ------------------ slide ---------------------------
+.uac-words.uac-words-slide{
+	padding:0.4em 0;
+	margin-top: -0.4em;
+	overflow: hidden;
+	vertical-align: top;
+	b {
+		opacity: 0;
+		top: 0;
+		&.uac-visible {
+			top: 0;
+			opacity: 1;
+			animation:uac-words-slide-in .6s;
+		}
+		&.uac-hidden {
+			animation:uac-words-slide-out .6s;
+			opacity: 0;
+		}
+	}
+}
+
+@keyframes uac-words-slide-in  {
+	0% {
+		opacity: 0;
+		transform:translateY(-100%);
+	}
+
+	60% {
+		opacity: 1;
+		transform:translateY(20%);
+	}
+
+	100% {
+		opacity: 1;
+		transform:translateY(0);
+	}
+}
+
+@keyframes uac-words-slide-out  {
+	0% {
+		opacity: 1;
+		transform:translateY(0);
+	}
+
+	60% {
+		opacity: 0;
+		transform:translateY(120%);
+	}
+
+	100% {
+		opacity: 0;
+		transform:translateY(100%);
+	}
+}
+
+// ---------------------------------------------
+
+
+// ---------------------------------------------
+
+
+// ---------------------------------------------
