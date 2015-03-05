@@ -602,6 +602,7 @@ $ua-link-dots-color:rgba(0,0,0,0.2);
 			transform: rotateY(90deg);
 			transform-origin: 0 50%;
 			pointer-events: none;
+			backface-visibility:hidden;
 		}
 	}
 	&:hover,&:focus{
