@@ -1,0 +1,39 @@
+// ------------ line strip when load in -------------
+.ua-line-loadin{
+	position: relative;
+	&::after{
+		content:'';
+		display: block;
+		position: absolute;
+		top: 50%;
+		// left: 0;
+		width:0;
+		// right: 0;
+		height: 4px;
+		background: map-get($color-green, '300');
+		animation: uac-line-load-in 1s 0.3s ease-out;
+	}
+}
+
+@keyframes uac-line-load-in {
+	0% {
+		// left: 0;
+		width:0;
+	}
+	30%{
+		// left:0;
+		width: 100%;
+	}
+	35%{
+		// left:0;
+		width: 100%;
+	}
+	50%{
+		// right: 0;
+		width: 100%;
+	}
+	100% {
+		right: 0;
+		width: 0;
+	}
+}
