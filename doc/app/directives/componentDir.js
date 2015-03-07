@@ -3,7 +3,6 @@ app.directive('coding',function(){
 		restrict:'E',
 		replace: true,
 		compile:function(tElm,attr){
-			window.test = tElm[0];
 			var text = tElm[0].innerHTML.trim().replace(/\&lt;/g,'<').replace(/\&gt;/g,'>');
 			var codeTextNode = document.createTextNode( text );
 

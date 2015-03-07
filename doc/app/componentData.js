@@ -15,6 +15,10 @@ angular.module('ua-doc').constant('COMDATA', [
     "name": "words",
     "path": 'app/comp/words.html',
     "url": ""
+  },{
+    "name": "button",
+    "path": 'app/comp/button.html',
+    "url": ""
   }
 
 

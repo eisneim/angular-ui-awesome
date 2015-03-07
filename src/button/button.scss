@@ -1,0 +1,52 @@
+.uac-button{
+	user-select: none;
+	position: relative;
+	outline: none;
+	border: 0;
+	padding: 0.5em 1em;
+	margin: 0 0.2em;
+	background: transparent;
+	white-space: nowrap;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: inherit;
+	font-style: inherit;
+	font-variant: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 3px;
+	transition: box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), 
+				background-color 0.3s cubic-bezier(0.35, 0, 0.25, 1), 
+				transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+	&:hover,&:focus{
+		background-color: rgba(158, 158, 158, 0.1);
+	}
+	&.ua-raised:not([disabled]){
+		background-color: rgba(158, 158, 158, 0.1);
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+		&:hover {
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+		}
+	}
+}
+
+.uac-button-ripple{
+	position: absolute;
+	background: rgba(0,0,0,.15);
+	border-radius: 100%;
+	transform: scale(0);
+	pointer-events: none;
+	&.uac-animate{
+		animation: uac-btn-ripple .75s ease-out;
+	}
+}
+@keyframes uac-btn-ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
