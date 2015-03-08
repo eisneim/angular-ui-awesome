@@ -49,14 +49,14 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 	this.ui = {};
 
 	this.components = [
+		'words',
 		'toggle',
 		'link',
 		'loader',
-		'words',
+		'button',
 		'dropdown',
 		'date-picker',
 		'dialog',
-		'button',
 		'slider',
 		'inputBox',
 		'checkbox',
