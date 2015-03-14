@@ -29,7 +29,7 @@
 		background-color: rgba(158, 158, 158, 0.1);
 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 		&:hover {
-			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+			box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.26);
 		}
 	}
 }
@@ -50,3 +50,224 @@
     opacity: 0;
   }
 }
+// ------------
+.uac-button.ua-ghost{
+	border: solid 1px #333;
+	background-color: rgba(0,0,0,0);
+	box-shadow: none;
+	&:hover{
+		background-color: rgba(255,255,255,0.1);
+		box-shadow: none;
+	}
+}
+// ------------------------------ colors -----------------
+.uac-button.ua-btn-red {
+	color: map-get($color-red,'400');
+	&.ua-raised{
+		background-color: map-get($color-red,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-red,'400');
+		color: map-get($color-red,'400');
+	}
+}
+.uac-button.ua-btn-pink {
+	color: map-get($color-pink,'400');
+	&.ua-raised{
+		background-color: map-get($color-pink,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-pink,'400');
+		color: map-get($color-pink,'400');
+	}
+}
+.uac-button.ua-btn-purple {
+	color: map-get($color-purple,'400');
+	&.ua-raised{
+		background-color: map-get($color-purple,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-purple,'400');
+		color: map-get($color-purple,'400');
+	}
+}
+.uac-button.ua-btn-deep-purple {
+	color: map-get($color-deep-purple,'400');
+	&.ua-raised{
+		background-color: map-get($color-deep-purple,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-deep-purple,'400');
+		color: map-get($color-deep-purple,'400');
+	}
+}
+.uac-button.ua-btn-indigo {
+	color: map-get($color-indigo,'400');
+	&.ua-raised{
+		background-color: map-get($color-indigo,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-indigo,'400');
+		color: map-get($color-indigo,'400');
+	}
+}
+.uac-button.ua-btn-blue {
+	color: map-get($color-blue,'400');
+	&.ua-raised{
+		background-color: map-get($color-blue,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-blue,'400');
+		color: map-get($color-blue,'400');
+	}
+}
+.uac-button.ua-btn-light-blue {
+	color: map-get($color-light-blue,'400');
+	&.ua-raised{
+		background-color: map-get($color-light-blue,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-light-blue,'400');
+		color: map-get($color-light-blue,'400');
+	}
+}
+.uac-button.ua-btn-cyan {
+	color: map-get($color-cyan,'400');
+	&.ua-raised{
+		background-color: map-get($color-cyan,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-cyan,'400');
+		color: map-get($color-cyan,'400');
+	}
+}
+.uac-button.ua-btn-teal {
+	color: map-get($color-teal,'400');
+	&.ua-raised{
+		background-color: map-get($color-teal,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-teal,'400');
+		color: map-get($color-teal,'400');
+	}
+}.uac-button.ua-btn-green {
+	color: map-get($color-green,'400');
+	&.ua-raised{
+		background-color: map-get($color-green,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-green,'400');
+		color: map-get($color-green,'400');
+	}
+}
+.uac-button.ua-btn-light-green {
+	color: map-get($color-light-green,'400');
+	&.ua-raised{
+		background-color: map-get($color-light-green,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-light-green,'400');
+		color: map-get($color-light-green,'400');
+	}
+}
+.uac-button.ua-btn-lime {
+	color: map-get($color-lime,'400');
+	&.ua-raised{
+		background-color: map-get($color-lime,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-lime,'400');
+		color: map-get($color-lime,'400');
+	}
+}
+.uac-button.ua-btn-yellow {
+	color: map-get($color-yellow,'400');
+	&.ua-raised{
+		background-color: map-get($color-yellow,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-yellow,'400');
+		color: map-get($color-yellow,'400');
+	}
+}
+.uac-button.ua-btn-amber {
+	color: map-get($color-amber,'400');
+	&.ua-raised{
+		background-color: map-get($color-amber,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-amber,'400');
+		color: map-get($color-amber,'400');
+	}
+}
+.uac-button.ua-btn-orange {
+	color: map-get($color-orange,'400');
+	&.ua-raised{
+		background-color: map-get($color-orange,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-orange,'400');
+		color: map-get($color-orange,'400');
+	}
+}
+.uac-button.ua-btn-deep-orange {
+	color: map-get($color-deep-orange,'400');
+	&.ua-raised{
+		background-color: map-get($color-deep-orange,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-deep-orange,'400');
+		color: map-get($color-deep-orange,'400');
+	}
+}
+.uac-button.ua-btn-brown {
+	color: map-get($color-brown,'400');
+	&.ua-raised{
+		background-color: map-get($color-brown,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-brown,'400');
+		color: map-get($color-brown,'400');
+	}
+}
+.uac-button.ua-btn-grey {
+	color: map-get($color-grey,'400');
+	&.ua-raised{
+		background-color: map-get($color-grey,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-grey,'400');
+		color: map-get($color-grey,'400');
+	}
+}
+.uac-button.ua-btn-blue-grey {
+	color: map-get($color-blue-grey,'400');
+	&.ua-raised{
+		background-color: map-get($color-blue-grey,'400');
+		color: #fff;
+	}
+	&.ua-ghost{
+		border-color: map-get($color-blue-grey,'400');
+		color: map-get($color-blue-grey,'400');
+	}
+}
+
+
