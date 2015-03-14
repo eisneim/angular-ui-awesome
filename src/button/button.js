@@ -1,4 +1,4 @@
-ua.directive('uaButton',function(){
+ua.directive('uaButton',['uaUtil',function(uaUtil){
 	function linkFunc($scoe,elm,attr){
 		var rippleElm = document.createElement('span');
 		rippleElm.className = 'uac-button-ripple';
@@ -11,9 +11,13 @@ ua.directive('uaButton',function(){
 
 		function clickHandel(e){
 			rippleElm.classList.remove('uac-animate');
+			rect = elm[0].getBoundingClientRect();
+			var top = (e.clientY - rect.top) - rippleElm.offsetHeight / 2  - document.body.scrollTop;
+			var left = e.clientX - rect.left - rippleElm.offsetWidth / 2  - document.body.scrollLeft;
 
-			var top = e.pageY - rect.top - rippleElm.offsetHeight / 2  - document.body.scrollTop;
-			var left = e.pageX - rect.left - rippleElm.offsetWidth / 2  - document.body.scrollLeft;
+			// var top = (e.clientY - rect.top) - rippleElm.offsetHeight / 2;
+			// var left = e.clientX - rect.left - rippleElm.offsetWidth / 2;
+			
 			rippleElm.style.top = top + 'px';
 			rippleElm.style.left = left +'px';
 
@@ -35,6 +39,7 @@ ua.directive('uaButton',function(){
 	    callback.call(scope, array[i], i ); // passes back stuff we need
 	  }
 	};
+	
 
 	return {
 		restrict: 'E',
@@ -81,4 +86,4 @@ ua.directive('uaButton',function(){
 			return linkFunc;
 		}
 	}
-});
+}]);
