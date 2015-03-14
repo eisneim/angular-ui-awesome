@@ -151,3 +151,90 @@ $color-delta: rgba(#2980d9, $liquidsquare-delta);
 // ---------------========== win8 ================================== 
 // http://codepen.io/janrubio/pen/DusIE?editors=110
 
+
+// ------------------------- fourdots ------------- 
+.uac-loader-fourdots {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -50px;
+  border-radius: 20px;
+  animation: uac-loader-4dotsrotate 4s ease-in-out infinite;
+  .uac-loader-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+  }
+  .uac-loader-red {
+    background: #e7524e;
+    -webkit-border-radius: 20px;
+    animation: uac-firstcolor 1.05s ease-in-out infinite;
+  }
+  .uac-loader-blue {
+    background: #00ade4;
+    animation: uac-secondcolor 1.05s ease-in-out infinite;
+  }
+  .uac-loader-green {
+    background: #71c458;
+    -webkit-border-radius: 20px;
+    animation: uac-thirdcolor 1.05s ease-in-out infinite;
+  }
+  .uac-loader-yellow {
+    background: #fdc331;
+    -webkit-border-radius: 20px;
+    animation: uac-fourthcolor 1.05s ease-in-out infinite;
+  }
+}
+
+/*-----Animations----*/
+@keyframes uac-firstcolor {
+  0% {
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(24px);
+  }
+}
+@keyframes uac-secondcolor {
+  0% {
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(-24px);
+  }
+}
+@keyframes uac-thirdcolor {
+  0% {
+    z-index: 1;
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+@keyframes uac-fourthcolor {
+  0% {
+    z-index: 1;
+  }
+  50% {
+    transform: translateY(24px);
+  }
+}
+
+@keyframes uac-loader-4dotsrotate {
+  0% {
+    z-index: 1;
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+}
+

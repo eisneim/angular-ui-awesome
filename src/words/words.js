@@ -114,9 +114,12 @@ ua.directive('uaWords',function(){
 				if(theme == 'letter-type'){
 					elm.removeClass('uac-selected');
 				}
-				letters[inLetterIndex].classList.remove('uac-out');
-				letters[inLetterIndex].classList.add('uac-in');
 
+				if(letters[inLetterIndex]) {
+					letters[inLetterIndex].classList.remove('uac-out');
+					letters[inLetterIndex].classList.add('uac-in');
+				}
+					
 				inLetterIndex++;
 				if( inLetterIndex < letters.length ) {
 					setTimeout(function(){ letterIn(letters) },letterAnimDelay );
@@ -137,9 +140,10 @@ ua.directive('uaWords',function(){
 					}
 					return;
 				}
-
-				letters[outLetterIndex].classList.remove('uac-in');
-				letters[outLetterIndex].classList.add('uac-out');
+				if(letters[outLetterIndex]) {
+					letters[outLetterIndex].classList.remove('uac-in');
+					letters[outLetterIndex].classList.add('uac-out');
+				}
 
 				outLetterIndex++;
 

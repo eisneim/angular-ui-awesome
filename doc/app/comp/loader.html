@@ -11,6 +11,25 @@
 	}
 </style>
 <div class="ua-demo-loaders" ua-demo-loaders>
+	<header>
+		<coding lan="javascript">
+var circleLoader = $uaLoader({
+	container: document.getElementById('ua-loader-stroke'),
+});
+
+var liquidsquare = $uaLoader({
+	container: document.getElementById('ua-loader-liquidsquare'),
+	theme:'liquidSquare',
+});
+
+var fourdots = $uaLoader({
+	container: document.getElementById('ua-loader-fourdots'),
+	theme: 'fourdots'
+});
+// fourdots.show(), fourdots.hide([delay=0]), fourdots.remove()
+...
+		</coding>
+	</header>
 	<div class="clearfix">
 		<h2>$ua-loader</h2>
 		<div class="item loader-container" id="ua-loader-stroke">
@@ -19,8 +38,8 @@
 		<div class="item loader-container" id="ua-loader-liquidsquare">
 			<span>liquidSquare</span>
 		</div>
-		<div class="item loader-container" id="ua-loader-long">
-			<span>long</span>
+		<div class="item loader-container" id="ua-loader-fourdots">
+			<span>fourdots</span>
 		</div>
 		<div class="item loader-container" id="ua-loader-long1">
 			<span>long</span>

@@ -8,6 +8,13 @@ ua.factory('$uaLoader',function(){
 	    </div>';
   tpls.liquidSquare = '<div class="uac-loader uac-loader-liquidsquare" id="__id__"> <div></div> <div></div> <div></div><div></div> </div>';
 
+  tpls.fourdots = '<div class="uac-loader-fourdots"> \
+    <div class="uac-loader-dot uac-loader-red"></div> \
+    <div class="uac-loader-dot uac-loader-blue"></div> \
+    <div class="uac-loader-dot uac-loader-green"></div> \
+    <div class="uac-loader-dot uac-loader-yellow"></div> \
+  </div>';
+
   var count = 0;
 
   function Loader(option){
