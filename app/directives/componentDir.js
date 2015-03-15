@@ -38,6 +38,10 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			theme:'liquidSquare',
 		});
 		
+		var fourdots = $uaLoader({
+			container: document.getElementById('ua-loader-fourdots'),
+			theme: 'fourdots'
+		})
 
 	}
 }])

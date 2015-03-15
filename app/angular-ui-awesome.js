@@ -10,7 +10,35 @@
 var ua = angular.module('ngUiAwesome',[]);
 
 // app.run()
-ua.directive('uaButton',function(){
+ua.factory('uaUtil',[function(){
+	var dom = {};
+	/**
+	 * in order to calculate top,left value of ripple center ,
+	 * @param  {[type]} elm [description]
+	 * @return {Node}     [description]
+	 */
+	dom.findParentScrolled = function (elm){
+		var parent = elm.parentNode;
+		if(parent.isEqualNode(document.body) ) return false;
+
+		var styles = getComputedStyle(parent);
+
+		if( 
+			elm.scrollHeight > parent.clientHeight && 
+			(  styles['overflow']=='scroll'|| styles['overflow-y'] =='scroll'||styles['overflow'] =='auto'||styles['overflow-y'] =='auto'  )
+		){
+			return parent;
+		}else{
+			return findParentScrolled( parent );
+		}
+	};
+
+	return {
+		dom:dom,
+	}
+
+}])
+ua.directive('uaButton',['uaUtil',function(uaUtil){
 	function linkFunc($scoe,elm,attr){
 		var rippleElm = document.createElement('span');
 		rippleElm.className = 'uac-button-ripple';
@@ -23,9 +51,13 @@ ua.directive('uaButton',function(){
 
 		function clickHandel(e){
 			rippleElm.classList.remove('uac-animate');
+			rect = elm[0].getBoundingClientRect();
+			var top = (e.clientY - rect.top) - rippleElm.offsetHeight / 2  - document.body.scrollTop;
+			var left = e.clientX - rect.left - rippleElm.offsetWidth / 2  - document.body.scrollLeft;
 
-			var top = e.pageY - rect.top - rippleElm.offsetHeight / 2  - document.body.scrollTop;
-			var left = e.pageX - rect.left - rippleElm.offsetWidth / 2  - document.body.scrollLeft;
+			// var top = (e.clientY - rect.top) - rippleElm.offsetHeight / 2;
+			// var left = e.clientX - rect.left - rippleElm.offsetWidth / 2;
+			
 			rippleElm.style.top = top + 'px';
 			rippleElm.style.left = left +'px';
 
@@ -47,6 +79,7 @@ ua.directive('uaButton',function(){
 	    callback.call(scope, array[i], i ); // passes back stuff we need
 	  }
 	};
+	
 
 	return {
 		restrict: 'E',
@@ -93,7 +126,7 @@ ua.directive('uaButton',function(){
 			return linkFunc;
 		}
 	}
-});
+}]);
 
 ua.directive('uaLink',function(){
 	return {
@@ -122,6 +155,13 @@ ua.factory('$uaLoader',function(){
 	      </svg> \
 	    </div>';
   tpls.liquidSquare = '<div class="uac-loader uac-loader-liquidsquare" id="__id__"> <div></div> <div></div> <div></div><div></div> </div>';
+
+  tpls.fourdots = '<div class="uac-loader-fourdots"> \
+    <div class="uac-loader-dot uac-loader-red"></div> \
+    <div class="uac-loader-dot uac-loader-blue"></div> \
+    <div class="uac-loader-dot uac-loader-green"></div> \
+    <div class="uac-loader-dot uac-loader-yellow"></div> \
+  </div>';
 
   var count = 0;
 
@@ -362,9 +402,12 @@ ua.directive('uaWords',function(){
 				if(theme == 'letter-type'){
 					elm.removeClass('uac-selected');
 				}
-				letters[inLetterIndex].classList.remove('uac-out');
-				letters[inLetterIndex].classList.add('uac-in');
 
+				if(letters[inLetterIndex]) {
+					letters[inLetterIndex].classList.remove('uac-out');
+					letters[inLetterIndex].classList.add('uac-in');
+				}
+					
 				inLetterIndex++;
 				if( inLetterIndex < letters.length ) {
 					setTimeout(function(){ letterIn(letters) },letterAnimDelay );
@@ -385,9 +428,10 @@ ua.directive('uaWords',function(){
 					}
 					return;
 				}
-
-				letters[outLetterIndex].classList.remove('uac-in');
-				letters[outLetterIndex].classList.add('uac-out');
+				if(letters[outLetterIndex]) {
+					letters[outLetterIndex].classList.remove('uac-in');
+					letters[outLetterIndex].classList.add('uac-out');
+				}
 
 				outLetterIndex++;
 
