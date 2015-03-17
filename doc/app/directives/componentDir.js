@@ -41,7 +41,11 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 		var fourdots = $uaLoader({
 			container: document.getElementById('ua-loader-fourdots'),
 			theme: 'fourdots'
-		})
+		});
 
+		var bokeh = $uaLoader({
+			container: document.getElementById('ua-loader-bokeh'),
+			theme: 'bokeh'
+		});
 	}
 }])
