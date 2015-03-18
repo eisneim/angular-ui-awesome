@@ -163,6 +163,8 @@ ua.factory('$uaLoader',function(){
     <div class="uac-loader-dot uac-loader-yellow"></div> \
   </div>';
 
+  tpls.bokeh = '<ul class="uac-loader uac-loader-bokeh"><li></li><li></li><li></li><li></li></ul>';
+
   var count = 0;
 
   function Loader(option){
