@@ -17,6 +17,8 @@ ua.factory('$uaLoader',function(){
 
   tpls.bokeh = '<ul class="uac-loader uac-loader-bokeh"><li></li><li></li><li></li><li></li></ul>';
 
+  tpls.kiri = '<div class="uac-loader uac-loader-kiri"><span></span><span></span><span></span></div>';
+  
   var count = 0;
 
   function Loader(option){
