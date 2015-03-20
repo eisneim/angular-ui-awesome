@@ -323,11 +323,12 @@ $color-delta: rgba(#2980d9, $liquidsquare-delta);
 }
 
 // -------------------- uac kiri-----
-// ========= loading effect ===========
+// http://codepen.io/hafizfattah/pen/AbBtc
 .uac-loader-kiri{
     position: absolute;
-    // width: 200px;
-    // height: 200px;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
     // line-height: 200px;
     // border-radius: 50%;
     // top: 50%;
@@ -339,7 +340,7 @@ $color-delta: rgba(#2980d9, $liquidsquare-delta);
   width:16px;
   height:16px;
   position:absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
   border-radius:50%;
   display:inline-block;
@@ -347,15 +348,15 @@ $color-delta: rgba(#2980d9, $liquidsquare-delta);
   animation:3s infinite linear;
 }
 
-.uac-loader-kiri span:nth-child(2){
+.uac-loader-kiri span:nth-child(1){
   background:#E84C3D;
   animation:kiri 1.2s infinite linear;
 }
-.uac-loader-kiri span:nth-child(3){
+.uac-loader-kiri span:nth-child(2){
   background:#F1C40F;
   z-index:100;
 }
-.uac-loader-kiri span:nth-child(4){
+.uac-loader-kiri span:nth-child(3){
   background:#2FCC71;
   animation:kanan 1.2s infinite linear;
 }

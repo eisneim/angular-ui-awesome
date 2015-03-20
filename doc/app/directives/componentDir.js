@@ -47,5 +47,10 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: document.getElementById('ua-loader-bokeh'),
 			theme: 'bokeh'
 		});
+
+		var kiri = $uaLoader({
+			container: document.getElementById('ua-loader-kiri'),
+			theme: 'kiri'
+		});
 	}
 }])
