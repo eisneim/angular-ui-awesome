@@ -57,10 +57,14 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: document.getElementById('ua-loader-sail'),
 			theme: 'sail'
 		});
-		
+
 		var breath = $uaLoader({
 			container: document.getElementById('ua-loader-breath'),
 			theme: 'breath'
+		});
+		var flipDot = $uaLoader({
+			container: document.getElementById('ua-loader-flipdot'),
+			theme: 'flipDot'
 		});
 	}
 }])

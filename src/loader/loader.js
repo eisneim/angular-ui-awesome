@@ -21,7 +21,14 @@ ua.factory('$uaLoader',function(){
 
   tpls.sail = '<div class="uac-loader uac-loader-sail"><span></span><span></span><span></span><span></span></div>';
   
-  tpls.breath = '<div class="uac-loader uac-loader-breath"><span></span></div>';
+  tpls.breath = '<div class="uac-loader uac-loader-breath"><span></span><span></span></div>';
+
+  tpls.flipDot = '<div class="uac-loader uac-loader-flipdot"> \
+    <div class="semicircle upper-base"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle upper-move"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle lower-base"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle lower-move"><div class="semicircle-inner"></div></div> \
+  </div>';
 
   var count = 0;
 
