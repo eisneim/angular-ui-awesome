@@ -66,5 +66,10 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: document.getElementById('ua-loader-flipdot'),
 			theme: 'flipDot'
 		});
+		var squarePuls = $uaLoader({
+			container: document.getElementById('ua-loader-squarepuls'),
+			theme: 'squarePuls'
+		});
+
 	}
 }])
