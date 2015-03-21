@@ -12,6 +12,11 @@ $loader-blue: map-get($color-blue,'400');
 $loader-red: map-get($color-red,'400');
 $loader-yellow: map-get($color-pink,'400');
 
+$dot-red: #e7524e;
+$dot-blue: #00ade4;
+$dot-green: #71c458;
+$dot-yellow:#fdc331;
+
 .uac-loader-stroke {
 	width: 100px;
 	height: 100px;
@@ -383,4 +388,116 @@ $color-delta: rgba(#2980d9, $liquidsquare-delta);
     100%{
       transform:translateX(-20px);
     }
+}
+// ------------------ sail theme------------------
+.uac-loader-sail {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -40px 0 0 -40px;
+  // border-radius: 20px;
+  // animation: uac-loader-4dotsrotate 4s ease-in-out infinite;
+  &>span {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    // left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+  }
+  &>span:nth-child(1) { //red
+    background: $dot-red;
+    left:0;
+    animation: uac-sail-toRight 2s linear infinite;
+  }
+  &>span:nth-child(2) { //blue
+    background: $dot-blue;
+    left:25%;
+    animation: uac-sail-toRight 2s linear infinite;
+    animation-delay: 0.5s;
+  }
+  &>span:nth-child(3) { //green
+    background: $dot-green;
+    left:50%;
+    animation: uac-sail-toRight 2s linear infinite;
+    animation-delay: 1s;
+  }
+  &>span:nth-child(4) { // yellow
+    background: $dot-yellow;
+    left:75%;
+    animation: uac-sail-toRight 2s linear infinite;
+    animation-delay: 1.5s;
+  }
+}
+@keyframes uac-sail-toRight{
+  0%{
+    left: 0;
+    transform:scale(0.5);
+    opacity:0;
+  }
+  25%{
+    opacity:1;
+    transform:scale(1);
+  }
+  75%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    transform:scale(0.5);
+    opacity:0;
+    left:100%;
+  }
+}
+
+// ------------------- breath --------
+.uac-loader-breath {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -50px;
+  animation: uac-loader-breath 2s cubic-bezier(0.59, 0.01, 0.52, 1.02) infinite;
+  &>span {
+    width: 100px;
+    height: 100px;
+    background-color: $dot-red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: uac-loader-breath-color 4s cubic-bezier(0.59, 0.01, 0.52, 1.02) infinite;
+  }
+}
+@keyframes uac-loader-breath{
+  0%{
+    transform: scale(0.3);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0.3);
+  }
+}
+@keyframes uac-loader-breath-color{
+  0%{
+    background-color: $dot-red;
+  }
+  25%{
+    background-color: $dot-blue;
+  }
+  50%{
+    background-color: $dot-green;
+  }
+  75%{
+    background-color: $dot-yellow;
+  }
 }
