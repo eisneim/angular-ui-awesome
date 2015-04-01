@@ -33,10 +33,10 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: circleContainer,
 		});
 
-		var liquidsquare = $uaLoader({
-			container: document.getElementById('ua-loader-liquidsquare'),
-			theme:'liquidSquare',
-		});
+		// var liquidsquare = $uaLoader({
+		// 	container: document.getElementById('ua-loader-liquidsquare'),
+		// 	theme:'liquidSquare',
+		// });
 		
 		var fourdots = $uaLoader({
 			container: document.getElementById('ua-loader-fourdots'),
@@ -70,6 +70,9 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: document.getElementById('ua-loader-squarepuls'),
 			theme: 'squarePuls'
 		});
-
+		var wave = $uaLoader({
+			container: document.getElementById('ua-loader-wave'),
+			theme: 'wave'
+		});
 	}
 }])

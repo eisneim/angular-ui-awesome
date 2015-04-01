@@ -30,7 +30,7 @@ ua.factory('$uaLoader',function(){
     <div class="semicircle lower-move"><div class="semicircle-inner"></div></div> \
   </div>';
   tpls.squarePuls = '<div class="uac-loader uac-loader-squarepuls"><span></span><span></span><span></span></div>';
-
+  tpls.wave = '<div class="uac-loader uac-loader-wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>';
 
   var count = 0;
 

@@ -24,6 +24,7 @@ var sass = require('gulp-sass'),
 var minifyHtml = require('gulp-minify-html');
 
 
+
 var paths = {
   js:   './src/**/*.js',
   sass: './src/**/*.scss',
