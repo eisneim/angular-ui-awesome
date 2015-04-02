@@ -74,5 +74,9 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: document.getElementById('ua-loader-wave'),
 			theme: 'wave'
 		});
+		var orbit = $uaLoader({
+			container: document.getElementById('ua-loader-orbit'),
+			theme: 'orbit'
+		});
 	}
 }])

@@ -31,6 +31,7 @@ ua.factory('$uaLoader',function(){
   </div>';
   tpls.squarePuls = '<div class="uac-loader uac-loader-squarepuls"><span></span><span></span><span></span></div>';
   tpls.wave = '<div class="uac-loader uac-loader-wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>';
+  tpls.orbit = '<div class="uac-loader uac-loader-orbit"><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div></div>';
 
   var count = 0;
 
