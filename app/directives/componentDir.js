@@ -33,10 +33,10 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 			container: circleContainer,
 		});
 
-		var liquidsquare = $uaLoader({
-			container: document.getElementById('ua-loader-liquidsquare'),
-			theme:'liquidSquare',
-		});
+		// var liquidsquare = $uaLoader({
+		// 	container: document.getElementById('ua-loader-liquidsquare'),
+		// 	theme:'liquidSquare',
+		// });
 		
 		var fourdots = $uaLoader({
 			container: document.getElementById('ua-loader-fourdots'),
@@ -46,6 +46,37 @@ app.directive('uaDemoLoaders',['$uaLoader',function($uaLoader){
 		var bokeh = $uaLoader({
 			container: document.getElementById('ua-loader-bokeh'),
 			theme: 'bokeh'
+		});
+
+		var kiri = $uaLoader({
+			container: document.getElementById('ua-loader-kiri'),
+			theme: 'kiri'
+		});
+
+		var sail = $uaLoader({
+			container: document.getElementById('ua-loader-sail'),
+			theme: 'sail'
+		});
+
+		var breath = $uaLoader({
+			container: document.getElementById('ua-loader-breath'),
+			theme: 'breath'
+		});
+		var flipDot = $uaLoader({
+			container: document.getElementById('ua-loader-flipdot'),
+			theme: 'flipDot'
+		});
+		var squarePuls = $uaLoader({
+			container: document.getElementById('ua-loader-squarepuls'),
+			theme: 'squarePuls'
+		});
+		var wave = $uaLoader({
+			container: document.getElementById('ua-loader-wave'),
+			theme: 'wave'
+		});
+		var orbit = $uaLoader({
+			container: document.getElementById('ua-loader-orbit'),
+			theme: 'orbit'
 		});
 	}
 }])

@@ -114,11 +114,10 @@ ua.directive('uaButton',['uaUtil',function(uaUtil){
 				
 			}
 
+			// now replace old Node with new nodes
 			var innerNodes = stringToNode( 
 				tpl.replace('__replaceme__',inner ).replace('__attr__',attributes) 
 			);
-			// console.log( innerNodes )
-
 			forEach(innerNodes,function(node,index){
 				tElm[0].parentNode.insertBefore(node, tElm[0].nextSibling );
 			});
@@ -127,6 +126,7 @@ ua.directive('uaButton',['uaUtil',function(uaUtil){
 		}
 	}
 }]);
+
 
 ua.directive('uaLink',function(){
 	return {
@@ -164,6 +164,22 @@ ua.factory('$uaLoader',function(){
   </div>';
 
   tpls.bokeh = '<ul class="uac-loader uac-loader-bokeh"><li></li><li></li><li></li><li></li></ul>';
+
+  tpls.kiri = '<div class="uac-loader uac-loader-kiri"><span></span><span></span><span></span></div>';
+
+  tpls.sail = '<div class="uac-loader uac-loader-sail"><span></span><span></span><span></span><span></span></div>';
+  
+  tpls.breath = '<div class="uac-loader uac-loader-breath"><span></span><span></span></div>';
+
+  tpls.flipDot = '<div class="uac-loader uac-loader-flipdot"> \
+    <div class="semicircle upper-base"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle upper-move"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle lower-base"><div class="semicircle-inner"></div></div> \
+    <div class="semicircle lower-move"><div class="semicircle-inner"></div></div> \
+  </div>';
+  tpls.squarePuls = '<div class="uac-loader uac-loader-squarepuls"><span></span><span></span><span></span></div>';
+  tpls.wave = '<div class="uac-loader uac-loader-wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>';
+  tpls.orbit = '<div class="uac-loader uac-loader-orbit"><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div><div class="uac-loader-dot"></div></div>';
 
   var count = 0;
 
