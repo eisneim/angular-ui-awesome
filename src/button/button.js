@@ -74,11 +74,10 @@ ua.directive('uaButton',['uaUtil',function(uaUtil){
 				
 			}
 
+			// now replace old Node with new nodes
 			var innerNodes = stringToNode( 
 				tpl.replace('__replaceme__',inner ).replace('__attr__',attributes) 
 			);
-			// console.log( innerNodes )
-
 			forEach(innerNodes,function(node,index){
 				tElm[0].parentNode.insertBefore(node, tElm[0].nextSibling );
 			});
