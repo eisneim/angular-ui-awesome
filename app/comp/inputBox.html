@@ -1,86 +1,47 @@
 <style>
-	.ua-demo-links ul li{
-		float:left;
-		margin:10px;
-		text-align: center;
-		width:200px;
-		height:60px;
+	.ua-demo-inputs .demos{
+		font-size: 24px;
+	}
+	.ua-demo-inputs .uac-input{
+		display: block;
 	}
 </style>
-<div class="ua-demo-links" >
+<div class="ua-demo-inputs" >
 	<header>
 		<coding lan="markup">
-&lt;ua-link href="#" class="ua-link-brucket">brucket&lt;/ua-link>
-&lt;ua-link href="#" class="ua-link-rolling" data-hover="behind">rolling&lt;/ua-link>
-&lt;ua-link href="#" class="ua-link-lineup">lineup&lt;/ua-link>
-&lt;ua-link href="#" class="ua-link-subtext" data-hover="blah blah blah">subtext&lt;/ua-link>
+&lt;ua-input ua-label="theme: nao" ua-theme="nao" ng-model="someval" required >&lt;/ua-input>
+&lt;ua-input ua-label="theme: shoko" ng-model="test" ua-theme="shoko">&lt;/ua-input>
+&lt;ua-input ua-label="theme: kozakura" ng-model="test" ua-theme="kozakura">&lt;/ua-input>
+&lt;ua-input ua-label="theme: manami" ua-theme="manami" ng-model="someval" required >&lt;/ua-input>
 ...
 		</coding>
 	</header>
-	<ul class="clearfix">
-		<li>
-			<ua-link href="#/" class="ua-link-brucket">brucket</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-rolling" data-hover="behind">rolling</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-lineup">lineup</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-linedown">linedown</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-slideup" data-hover="ha-ha">slideup</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-linedrop">linedrop</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-lineraise">lineraise</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-border">border</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-subtext" data-hover="blah blah blah">subtext</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-push" data-hover="secret...">push</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-textfill" data-hover="textfill">textfill</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-dots">dots</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-switchborder">switchborder</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-circle">circle</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-shrink" data-hover="shrink">shrink</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-fall" data-hover="fall">fall</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-pushup" data-hover="pushup">pushup</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-cross">cross</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-slide3d" data-hover="yummi!">slide3d</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-flip3d" data-hover="tada !">flip3d</ua-link>
-		</li>
-		<li>
-			<ua-link href="#/" class="ua-link-borderin">borderin</ua-link>
-		</li>
+	<h3>{{someval}}</h3>
+	<div class="demos">
+		<ua-input ua-label="theme: nao" ua-theme="nao" ng-model="someval" required ></ua-input>
+		
+		<ua-input ua-label="theme: shoko" ng-model="test" ua-theme="shoko"></ua-input>
+		
+		<ua-input ua-label="theme: kozakura" ng-model="test" ua-theme="kozakura"></ua-input>
+
+		<ua-input ua-label="theme: manami" ua-theme="manami" ng-model="someval" required ></ua-input>
 	
-	</ul>
+		<ua-input ua-label="theme: nariko" ua-theme="nariko"></ua-input>
+		
+		<br>
+		<ua-input ua-label="theme: yoshiko" ua-theme="yoshiko"></ua-input>
+		<br><br>
+
+		<ua-input ua-label="theme: chisato" ua-theme="chisato"></ua-input>
+		<br>
+		<br>
+		<ua-input ua-label="theme: ruri" ua-theme="ruri"></ua-input>
+
+
+
+		
+
+	
+
+	</div>
 </div>
