@@ -1,8 +1,27 @@
 {
   "name": "angular-ui-awesome",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "homepage": "http://eisneim.github.io/angular-ui-awesome",
+  "authors": [
+    "eisneim <eisneim1@sina.com>"
+  ],
+  "description": "a collection of awesome ui directives for your AngularJS app",
   "dependencies": {
-    "angular": "1.3.6",
-    "angular-route": "1.3.6",
-  }
-}
+    "angular": ">=1.2",
+    "angular-route": ">=1.2"
+  },
+  "main": "./build/angular-ui-awesome.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">= 1.2"
+  },
+  "keywords":["ui components","angular ui collection"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+
+ }
