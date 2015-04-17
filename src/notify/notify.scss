@@ -1,0 +1,52 @@
+.nb-notify{
+	padding: 1em;
+	color: #fff;
+	cursor: pointer;
+	// transition: top 0.3s ease-out;
+	animation: noti-showDown 0.3s ease-out;
+	p{
+		margin:0;
+	}
+	&.notify-block{
+		width: auto;
+	}
+
+	&.notify-full{
+		width: 100%;
+		text-align: center;
+	}
+	&.notify-error{
+		background-color: map-get($color-red,'400');
+	}
+	&.notify-info{
+		background-color: map-get($color-blue,'400');
+	}
+	&.notify-success{
+		background-color: map-get($color-green,'400');
+	}
+	&.notify-warn{
+		background-color: map-get($color-orange,'400');
+	}
+
+	&.hidding{
+		animation: fade-out 0.3s ease-in forwards;
+	}
+
+}
+
+@keyframes noti-showDown{
+	from{
+		top: -8em;
+	}
+	to{
+		top: 0;
+	}
+}
+@keyframes noti-hideUp{
+	from{
+		top: -8em;
+	}
+	to{
+		top: 0;
+	}
+}
