@@ -19,6 +19,9 @@
 		background-color: map-get($color-red,'400');
 	}
 	&.notify-info{
+		background-color: map-get($color-orange,'400');
+	}
+	&.notify-info{
 		background-color: map-get($color-blue,'400');
 	}
 	&.notify-success{

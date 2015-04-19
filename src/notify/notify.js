@@ -91,7 +91,10 @@ ua.factory('$uaNotify',function(){
 		Array.prototype.unshift.call(arguments,'info');
 		this._showMsg.apply(this, arguments )
 	}
-
+	pt.warn = function(msg, title){
+		Array.prototype.unshift.call(arguments,'warn');
+		this._showMsg.apply(this, arguments )
+	}
 	function _idGen(prefix){
 		return (prefix||'nbNoti-elm-') + id++;
 	}
