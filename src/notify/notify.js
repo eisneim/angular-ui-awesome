@@ -1,5 +1,11 @@
-ua.factory('$ua-notify',function(){
+ua.factory('$uaNotify',function(){
+	/**
+	 * store id for notification;
+	 */
 	var id = 0;
+	// store all added notify, so according previous notify, we can postion next notify
+	// [instacne,instance]
+	var notifiers = [];
 
 	function Notify( opt ){
 		this.id = opt.id || _idGen();
@@ -61,6 +67,8 @@ ua.factory('$ua-notify',function(){
 		this.elm.classList.add('hidding');
 
 		setTimeout(function(){
+			notifiers.shift();
+
 			this.elm.remove();
 		}.bind(this),500)
 	}
@@ -84,17 +92,12 @@ ua.factory('$ua-notify',function(){
 		this._showMsg.apply(this, arguments )
 	}
 
-
 	function _idGen(prefix){
 		return (prefix||'nbNoti-elm-') + id++;
 	}
 
-	module.exports = function(opt){
-		if(opt){
-			return new Notify(opt);
-		}
-
-		return new Notify({
+	return ( function(){
+		var defaultNotifier = new Notify({
 			container: document.body,
 			life: 5000,
 			type: 'full',
@@ -104,8 +107,22 @@ ua.factory('$ua-notify',function(){
 			}
 		});
 
-	}
+		notifiers.push( defaultNotifier );
 
+		return {
+			notifier: defaultNotifier ,
+			error: this.notifier.error,
+			info: this.notifier.info,
+			success: this.notifier.success,
+			create: function(opt){
+				this.notifier = new Notify(opt);
+				notifiers.push(this.notifier);
+
+				return this.notifier;
+			}
+		}
+
+	})()
 
 
 });
