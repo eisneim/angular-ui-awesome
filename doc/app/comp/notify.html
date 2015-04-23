@@ -4,6 +4,7 @@
 	}
 	.ua-demo-notify label{
 		margin-right: 15px;
+		cursor: pointer;
 	}
 	.ua-demo-notify .uac-button{
 		margin: 10px;
@@ -14,8 +15,11 @@
 </style>
 <div class="ua-demo-notify" ng-controller="demoNotifyCtrl as noti">
 	<form name="noti.configFrom">
-		<ua-input ua-label="message" ua-theme="nao" ng-model="noti.options.msg" required ></ua-input>
-		<ua-input ua-label="title(optional)" ua-theme="nao" ng-model="noti.options.title" required ></ua-input>
+		<ua-input ua-label="message" ua-theme="nao" ng-model="noti.notify.msg" required ></ua-input>
+		<ua-input ua-label="title (optional)" ua-theme="nao" ng-model="noti.notify.title" required ></ua-input><br/>
+
+		<ua-input ua-label="life (ms)" ua-theme="nao" ng-model="noti.options.life" required ></ua-input>
+
 		<div style="padding-left:20px;">
 			<span>Notify Type:</span><br/>
 			<label >block <input type="radio" ng-model="noti.options.type" value="block"/></label>	
@@ -25,10 +29,10 @@
 	</form><br/><br/><br/>
 	<div class="clearfix">
 		<!-- <ua-button ng-click="noti.error" class="ua-raised">default</ua-button> -->
-		<ua-button ng-click="noti.error()" class="ua-raised ua-btn-red">error</ua-button>
-		<ua-button ng-click="noti.warn()" class="ua-raised ua-btn-orange">warn</ua-button>
-		<ua-button ng-click="noti.info()" class="ua-raised ua-btn-blue">info</ua-button>
-		<ua-button ng-click="noti.success()" class="ua-raised ua-btn-green">success</ua-button>
+		<ua-button ng-click="noti.showNotify('error')" class="ua-raised ua-btn-red">error</ua-button>
+		<ua-button ng-click="noti.showNotify('warn')" class="ua-raised ua-btn-orange">warn</ua-button>
+		<ua-button ng-click="noti.showNotify('info')" class="ua-raised ua-btn-blue">info</ua-button>
+		<ua-button ng-click="noti.showNotify('success')" class="ua-raised ua-btn-green">success</ua-button>
 	</div>
 	<header>
 		<coding lan="markup">

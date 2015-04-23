@@ -38,6 +38,7 @@ gulp.task('sass-doc', function() {
   // console.log('-----build main.scss');
   gulp.src('./doc/scss/main.scss')
     .pipe(sass())
+    .on( "error", handleError)
     .pipe(autoprefix('last 2 versions'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./doc/css/'))
@@ -71,6 +72,7 @@ gulp.task('js-build', function() {
 gulp.task('js-doc', function() {
   gulp.src(paths.js)
     .pipe(babel())
+    .on( "error", handleError)
     .pipe(concat('angular-ui-awesome.js'))
     .pipe(gulp.dest('./doc/app/'))
 });
@@ -124,5 +126,11 @@ gulp.task('default', ['watch']);
 
 gulp.task('build', ['tplCache','sass-build','js-build']); // 'join-modules',
 
+
+// --------- utils ------------
+function handleError(err) {
+  console.log(err.toString());
+  this.emit('end');
+}
 
 

@@ -15,6 +15,8 @@ ua.factory('$uaNotify',function(){
 			// defaults to true;
 			this.clickToHide = !opt.clickNotHide;
 			this.type = opt.type || 'full';// full, block
+			this.wraper = this.getWraper( this.container );
+
 			/**
 			 * if type is block, you have to provide position: top or bottom, left or right;
 			 */
@@ -24,45 +26,64 @@ ua.factory('$uaNotify',function(){
 				this.pos = {top:'0em',right:'0em'};
 			}
 		}
+		/**
+		 * in order to show mutible 
+		 * @return {[type]} [description]
+		 */
+		getWraper(container){
+			var wraper = document.getElementById('ua-notify-waper');
+			if(!wraper ){
+				wraper = document.createElement( 'div' );
+				wraper.id = 'ua-notify-waper';
+				wraper.style.position = 'absolute';
+				console.log('this.type:',this.type)
+
+				if(this.type == 'full') wraper.style.width ='100%';
+
+				container.appendChild(wraper)
+			}
+
+			return wraper;
+		}
 
 		_showMsg (type,msg,title){
-			console.log('should show some message');
+		
 			this.elm = document.createElement('div');
 
-			this.elm.style.position = 'fixed';
-
-			this.pos.top ? ( this.elm.style.top = this.pos.top ) : ( this.elm.style.bottom = this.pos.bottom );
-			
-
-			if(this.type == 'block'){
-				this.pos.left ? ( this.elm.style.left = this.pos.left ) : ( this.elm.style.right = this.pos.right );
-			}
+			this.calcPosition( this.elm, this.wraper );
 
 			this.elm.className = 'ua-notify notify-'+type + ' notify-'+this.type;
 
 			var tpl = '';
 			if(title){
-				tpl += '<h4>'+title+'</h4>';
+				tpl += '<h5 class="notify-title">'+title+'</h5>';
 			}
 			tpl += '<p>'+msg+'</p>';
 
 			this.elm.innerHTML = tpl;
-			console.log(this.elm);
 
 			// append to container
-			this.container.appendChild(this.elm);
+			this.wraper.appendChild(this.elm);
+
 			if(this.clickToHide){
 				this.elm.onclick = this.suicide.bind(this);
 			}
 			// suicide timer
 			setTimeout( this.suicide.bind(this), this.life );
 		}
+
+		calcPosition( elm, wraper ){
+			// this.pos.top ? ( elm.style.top = this.pos.top ) : ( elm.style.bottom = this.pos.bottom );
+			
+			// if(this.type == 'block'){
+			// 	this.pos.left ? ( elm.style.left = this.pos.left ) : ( elm.style.right = this.pos.right );
+			// }
+		}
+
 		/**
 		 * for suicide: remove element and remove itself from notifiers array;
 		 */
 		suicide(){
-			console.log('should__remove itself')
-			console.log(this);
 			// prevent click multi times
 			if( this.leaving ) return;
 
@@ -116,7 +137,7 @@ ua.factory('$uaNotify',function(){
 	return ( ()=>{
 		var defaultOption = {
 			container: document.body,
-			life: 5000,
+			life: 4000,
 			type: 'full',
 			position: {
 				top: '0px',
@@ -137,7 +158,7 @@ ua.factory('$uaNotify',function(){
 		}
 
 		notifier.create = (opt)=>{
-			this.config(opt);
+			notifier.config(opt);
 
 			this.notifier = new Notify(opt);
 			notifiers.push(this.notifier);

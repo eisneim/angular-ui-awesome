@@ -1,16 +1,29 @@
+#ua-notify-waper{
+	position:absolute;
+	height: auto;
+	top:0;
+	left:0;
+	z-index: 100;
+}
 .ua-notify{
-	padding: 1em;
+	padding:1em;
+	// width:auto;
 	color: #fff;
 	cursor: pointer;
-	top:0;
-	right:0;
+	// transition: all 0.3s ease;
 	// transition: top 0.3s ease-out;
 	// animation: noti-showDown 0.3s ease-out;
+	.notify-title{
+		margin:0;
+		font-size: 1.5em;
+	}
 	p{
 		margin:0;
 	}
 	&.notify-block{
 		width: auto;
+		display:inline-block;
+		border-radius: 3px;
 	}
 
 	&.notify-full{
@@ -18,19 +31,20 @@
 		text-align: center;
 	}
 	&.notify-error{
-		background-color: map-get($color-red,'400');
+		// background-color: map-get($color-red,'400');
+		background-color: rgba(239,83,80, 0.9);
 	}
 	&.notify-info{
-		background-color: map-get($color-orange,'400');
-	}
-	&.notify-info{
-		background-color: map-get($color-blue,'400');
+		// background-color: map-get($color-orange,'400');
+		background-color: rgba(66,165,245,0.9)
 	}
 	&.notify-success{
-		background-color: map-get($color-green,'400');
+		// background-color: map-get($color-green,'400');
+		background-color: rgba(102,187,106,0.9)
 	}
 	&.notify-warn{
-		background-color: map-get($color-orange,'400');
+		// background-color: map-get($color-orange,'400');
+		background-color: rgba(255,167,38,0.9)
 	}
 
 	&.hidding{
