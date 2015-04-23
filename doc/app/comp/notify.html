@@ -9,13 +9,13 @@
 	}
 	
 </style>
-<div class="ua-demo-notify" ng-controller="noti as demoNotifyCtrl">
+<div class="ua-demo-notify" ng-controller="demoNotifyCtrl as noti">
 	<div class="clearfix">
-		<ua-button class="ua-raised">default</ua-button>
-		<ua-button class="ua-raised ua-btn-red">error</ua-button>
-		<ua-button class="ua-raised ua-btn-orange">warn</ua-button>
-		<ua-button class="ua-raised ua-btn-blue">info</ua-button>
-		<ua-button class="ua-raised ua-btn-green">success</ua-button>
+		<!-- <ua-button ng-click="noti.error" class="ua-raised">default</ua-button> -->
+		<ua-button ng-click="noti.error()" class="ua-raised ua-btn-red">error</ua-button>
+		<ua-button ng-click="noti.warn()" class="ua-raised ua-btn-orange">warn</ua-button>
+		<ua-button ng-click="noti.info()" class="ua-raised ua-btn-blue">info</ua-button>
+		<ua-button ng-click="noti.success()" class="ua-raised ua-btn-green">success</ua-button>
 	</div>
 	<header>
 		<coding lan="markup">

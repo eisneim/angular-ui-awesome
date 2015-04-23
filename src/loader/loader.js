@@ -1,5 +1,5 @@
 
-ua.factory('$uaLoader',function(){
+ua.factory('$uaLoader',()=> {
   var tpls = {};
   tpls.stroke = '<div class="uac-loader uac-loader-stroke" id="__id__"> \
 	      <svg class="circular"> \
@@ -35,47 +35,45 @@ ua.factory('$uaLoader',function(){
 
   var count = 0;
 
-  function Loader(option){
-    this.elm = null;
-    if(!option) var option = {
-      theme:'stroke',
-    };
-    var $container = option.container || document.body;
-    var tpl = tpls[ option.theme ] || tpls['stroke'];
+  class Loader{
+    constructor(option){
+      this.elm = null;
+      if(!option) var option = {
+        theme:'stroke',
+      };
+      var $container = option.container || document.body;
+      var tpl = tpls[ option.theme ] || tpls['stroke'];
 
-    this.id = idGen();
+      this.id = idGen();
 
-    this.elm = angular.element( 
-      tpl.replace('__id__',this.id)
-      .replace('__className__',option.className || '') 
-    )[0];
-    $container.appendChild(this.elm);
+      this.elm = angular.element( 
+        tpl.replace('__id__',this.id)
+        .replace('__className__',option.className || '') 
+      )[0];
+      $container.appendChild(this.elm);
+    }
+
+    hide() {
+      this.elm.style.display = 'none';
+    }
+    show(){
+      this.elm.style.display = 'block';
+    }
+    remove(delay){
+      delay = delay || 0;
+      setTimeout(function(){
+        this.elm.remove();
+
+      }.bind(this),delay);
+    }
 
   }
-
-  Loader.prototype.hide = function(){
-    this.elm.style.display = 'none';
-  }
-
-  Loader.prototype.show = function(){
-    this.elm.style.display = 'block';
-  }
-
-  Loader.prototype.remove = function(delay){
-  	delay = delay || 0;
-
-  	setTimeout(function(){
-  		this.elm.remove();
-
-  	}.bind(this),delay);
-
-  };
 
    function idGen(){
     return 'uac-loader-elm-'+ (count++);
   }
 
-  return function(opt){
+  return (opt) => {
     return new Loader( opt );
   };
 

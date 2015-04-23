@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "author": "Eisneim <eisneim1@sina.com>",
-  "contributors": [
-  ],
+  "contributors": [],
   "engines": {
     "node": "0.10.x",
     "npm": "1.3.x"
@@ -16,7 +15,8 @@
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
-    "bower": "^1.3.3"
+    "bower": "^1.3.3",
+    "node-sass": "^2.1.1"
   },
   "devDependencies": {
     "gulp": "~3.5.5",
@@ -35,6 +35,7 @@
     "gulp-uglify": "~0.2.1",
     "gulp-util": "~2.2.14",
     "gulp-wait": "0.0.2",
+    "gulp-babel": "^5.1.0",
     "gulp-watch": "^0.6.6"
   }
 }

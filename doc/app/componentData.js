@@ -29,6 +29,10 @@ angular.module('ua-doc').constant('COMDATA', [
     "path": 'app/comp/inputBox.html',
     "url": ""
   },
-
+  {
+    "name": "notify",
+    "path": 'app/comp/notify.html',
+    "url": ""
+  },
 
 ]);

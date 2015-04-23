@@ -55,6 +55,7 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 		'loader',
 		'button',
 		'inputBox',
+		'notify',
 		'dropdown',
 		'date-picker',
 		'dialog',

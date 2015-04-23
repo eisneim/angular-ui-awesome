@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 
 // js file 
 var concat = require('gulp-concat'),
+    babel = require('gulp-babel'),
     uglify = require('gulp-uglify');
 
 // angularjs
@@ -58,6 +59,7 @@ gulp.task('sass-watch',function() {
 gulp.task('js-build', function() {
   gulp.src(paths.js)
     .pipe(ngAnnotate() )
+    .pipe(babel())
     .pipe(concat('angular-ui-awesome.js'))
     .pipe( uglify({
           compress:true,
@@ -68,6 +70,7 @@ gulp.task('js-build', function() {
 
 gulp.task('js-doc', function() {
   gulp.src(paths.js)
+    .pipe(babel())
     .pipe(concat('angular-ui-awesome.js'))
     .pipe(gulp.dest('./doc/app/'))
 });
@@ -109,7 +112,7 @@ gulp.task('watch', function() {
     livereload.listen();
     gulp.watch([paths.html,'./doc/app/**/*.html']).on('change', livereload.changed);
     gulp.watch(paths.js,['js-doc'])
-    gulp.watch(paths.js ).on('change', livereload.changed);
+    // gulp.watch(paths.js ).on('change', livereload.changed);
 
     gulp.watch('./doc/app/**/*.js').on('change', livereload.changed);
     gulp.watch('./doc/scss/**/*.scss', ['sass-doc']);
