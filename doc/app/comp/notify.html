@@ -1,6 +1,9 @@
 <style>
-	.ua-demo-notify .item{
+	.ua-demo-notify{
 		
+	}
+	.ua-demo-notify label{
+		margin-right: 15px;
 	}
 	.ua-demo-notify .uac-button{
 		margin: 10px;
@@ -10,6 +13,16 @@
 	
 </style>
 <div class="ua-demo-notify" ng-controller="demoNotifyCtrl as noti">
+	<form name="noti.configFrom">
+		<ua-input ua-label="message" ua-theme="nao" ng-model="noti.options.msg" required ></ua-input>
+		<ua-input ua-label="title(optional)" ua-theme="nao" ng-model="noti.options.title" required ></ua-input>
+		<div style="padding-left:20px;">
+			<span>Notify Type:</span><br/>
+			<label >block <input type="radio" ng-model="noti.options.type" value="block"/></label>	
+			<label >full <input type="radio" ng-model="noti.options.type" value="full"/></label>	
+		</div>
+		
+	</form><br/><br/><br/>
 	<div class="clearfix">
 		<!-- <ua-button ng-click="noti.error" class="ua-raised">default</ua-button> -->
 		<ua-button ng-click="noti.error()" class="ua-raised ua-btn-red">error</ua-button>

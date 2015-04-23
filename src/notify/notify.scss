@@ -1,9 +1,11 @@
-.nb-notify{
+.ua-notify{
 	padding: 1em;
 	color: #fff;
 	cursor: pointer;
+	top:0;
+	right:0;
 	// transition: top 0.3s ease-out;
-	animation: noti-showDown 0.3s ease-out;
+	// animation: noti-showDown 0.3s ease-out;
 	p{
 		margin:0;
 	}
@@ -35,21 +37,4 @@
 		animation: fade-out 0.3s ease-in forwards;
 	}
 
-}
-
-@keyframes noti-showDown{
-	from{
-		top: -8em;
-	}
-	to{
-		top: 0;
-	}
-}
-@keyframes noti-hideUp{
-	from{
-		top: -8em;
-	}
-	to{
-		top: 0;
-	}
 }

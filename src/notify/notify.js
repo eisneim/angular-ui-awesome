@@ -5,7 +5,7 @@ ua.factory('$uaNotify',function(){
 	var id = 0;
 	// store all added notify, so according previous notify, we can postion next notify
 	// [instacne,instance]
-	let notifiers = [];
+	window.notifiers = [];
 
 	class Notify{
 		constructor( opt ){
@@ -38,7 +38,7 @@ ua.factory('$uaNotify',function(){
 				this.pos.left ? ( this.elm.style.left = this.pos.left ) : ( this.elm.style.right = this.pos.right );
 			}
 
-			this.elm.className = 'nb-notify notify-'+type + ' notify-'+this.type;
+			this.elm.className = 'ua-notify notify-'+type + ' notify-'+this.type;
 
 			var tpl = '';
 			if(title){
@@ -47,6 +47,7 @@ ua.factory('$uaNotify',function(){
 			tpl += '<p>'+msg+'</p>';
 
 			this.elm.innerHTML = tpl;
+			console.log(this.elm);
 
 			// append to container
 			this.container.appendChild(this.elm);
@@ -60,14 +61,18 @@ ua.factory('$uaNotify',function(){
 		 * for suicide: remove element and remove itself from notifiers array;
 		 */
 		suicide(){
+			console.log('should__remove itself')
+			console.log(this);
 			// prevent click multi times
 			if( this.leaving ) return;
+
 			this.leaving = true;
 
 			this.elm.classList.add('hidding');
 
 			setTimeout(function(){
 				notifiers.shift();
+				this.leaving = false;
 
 				this.elm.remove();
 			}.bind(this),500)
@@ -94,11 +99,22 @@ ua.factory('$uaNotify',function(){
 	}
 
 	function _idGen(prefix){
-		return (prefix||'nbNoti-elm-') + id++;
+		return (prefix||'uaNoti-elm-') + id++;
+	}
+
+	function registerAllMethod( instance, defaultOption ){
+		['error','warn','info','success'].forEach(function( property,index ){
+			instance[ property ] = (msg,title) =>{
+				instance.notifier = new Notify( instance.options || defaultOption );
+				notifiers.push( instance.notifier );
+				return instance.notifier[ property ](msg,title);
+			}
+
+		})
 	}
 
 	return ( ()=>{
-		var defaultNotifier = new Notify({
+		var defaultOption = {
 			container: document.body,
 			life: 5000,
 			type: 'full',
@@ -106,27 +122,29 @@ ua.factory('$uaNotify',function(){
 				top: '0px',
 				left: '0px',
 			}
-		});
+		};
 
-		notifiers.push( defaultNotifier );
 		var notifier = {
-			notifier: defaultNotifier,
+			options:null,
+			notifier: null,
 		}
 
-		notifier.error = notifier.notifier.error.bind(notifier.notifier);
-		notifier.warn = notifier.notifier.warn.bind(notifier.notifier);
-		notifier.info = notifier.notifier.info.bind(notifier.notifier);
-		notifier.success = notifier.notifier.success.bind(notifier.notifier);
+		registerAllMethod( notifier , defaultOption );
+
+		notifier.config = (opt) =>{
+			if(typeof opt != 'object') throw Error('option must be an object');
+			this.options = opt;
+		}
 
 		notifier.create = (opt)=>{
-			// remove the default notifier;
-			notifiers.unshift()
+			this.config(opt);
 
 			this.notifier = new Notify(opt);
 			notifiers.push(this.notifier);
 
 			return this.notifier;
 		}
+
 		return notifier
 
 	})()
