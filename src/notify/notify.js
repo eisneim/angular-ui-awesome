@@ -22,7 +22,7 @@ ua.factory('$uaNotify',function(){
 			this.clickToHide = !opt.clickNotHide;
 			this.type = opt.type || 'block';// full, block
 
-			this.theme = ['flip','bouncyflip'].indexOf(opt.theme)?opt.theme:'flip';
+			this.theme = ['flip','bouncyflip','jelly','scale','slide','genie'].indexOf(opt.theme)?opt.theme:'flip';
 			/**
 			 * if type is block, you have to provide alignment
 			 */

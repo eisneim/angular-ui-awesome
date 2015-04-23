@@ -1,0 +1,27 @@
+// ----------==== animation 
+  @keyframes fade{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+  .fade-in{
+    animation:fade .3s ease;
+    animation-fill-mode: forwards;
+  }
+  .fade-out{
+    animation:fade .3s ease;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+  }
+// ----------
+@keyframes sway-up-down {
+  from{
+    transform:translateY(-5px)
+  }
+  to{
+    transform:translateY(5px)
+  }
+}
