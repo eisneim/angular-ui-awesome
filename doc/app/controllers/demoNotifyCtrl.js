@@ -7,7 +7,10 @@ app.controller('demoNotifyCtrl',['$scope','$uaNotify',
 
 	this.options = {
 		life: 4000,
-		type:'full',
+		type:'block',
+		alignVertical: 'top',
+		alignHorizontal: 'right',
+		theme: 'flip',
 	};
 	
 	this.showNotify = function(type ) {
