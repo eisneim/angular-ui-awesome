@@ -3,16 +3,19 @@
 	height: auto;
 	// left:0;
 	z-index: 100;
+	&>div{
+		pointer-events:none;
+	}
 	&>div:first-of-type .notify-block{
-			margin-top: 1em;
-		}
+		margin-top: 1em;
+	}
 }
 .ua-notify{
 	padding:1em;
 	// width:auto;
 	color: #fff;
 	cursor: pointer;
-
+	pointer-events:all;
 	// transition: all 0.3s ease;
 	// transition: top 0.3s ease-out;
 	// animation: noti-showDown 0.3s ease-out;
