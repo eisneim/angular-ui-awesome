@@ -1,0 +1,94 @@
+<style>
+	.ua-demo-notify{
+		
+	}
+	.ua-demo-notify label{
+		margin-right: 15px;
+		cursor: pointer;
+	}
+	.ua-demo-notify .uac-button{
+		margin: 10px;
+		display:inline-block;
+		float: left;
+	}
+	
+</style>
+<div class="ua-demo-notify" ng-controller="demoNotifyCtrl as noti">
+	<form name="noti.configFrom">
+		<ua-input ua-label="message" ua-theme="nao" ng-model="noti.notify.msg" required ></ua-input>
+		<ua-input ua-label="title (optional)" ua-theme="nao" ng-model="noti.notify.title" required ></ua-input><br/>
+
+		<ua-input ua-label="life (ms)" ua-theme="nao" ng-model="noti.options.life" required ></ua-input>
+
+		<div style="padding-left:20px;">
+			<span>Notify Type:</span><br/>
+			<label >block <input type="radio" ng-model="noti.options.type" value="block"/></label>	
+			<label >full <input type="radio" ng-model="noti.options.type" value="full"/></label>	
+		</div>
+		<br/>
+		<div style="padding-left:20px;">
+			<span>alignVertical:</span><br/>
+			<label >top <input type="radio" ng-model="noti.options.alignVertical" value="top"/></label>	
+			<label >bottom <input type="radio" ng-model="noti.options.alignVertical" value="bottom"/></label>	
+		</div><br/>
+		<div style="padding-left:20px;">
+			<span>alignHorizontal:</span><br/>
+			<label >left <input type="radio" ng-model="noti.options.alignHorizontal" value="left"/></label>	
+			<label >right <input type="radio" ng-model="noti.options.alignHorizontal" value="right"/></label>	
+		</div>
+		<br/>
+		<div style="padding-left:20px;">
+			<span>theme:</span><br/>
+			<label >flip <input type="radio" ng-model="noti.options.theme" value="flip"/></label>	
+			<label >bouncyflip <input type="radio" ng-model="noti.options.theme" value="bouncyflip"/></label>	
+			<label >scale <input type="radio" ng-model="noti.options.theme" value="scale"/></label>	
+			<label >jelly <input type="radio" ng-model="noti.options.theme" value="jelly"/></label>	
+			<label >slide <input type="radio" ng-model="noti.options.theme" value="slide"/></label>	
+			<label >genie <input type="radio" ng-model="noti.options.theme" value="genie"/></label>	
+		</div>
+
+	</form><br/><br/><br/>
+	<div class="clearfix">
+		<!-- <ua-button ng-click="noti.error" class="ua-raised">default</ua-button> -->
+		<ua-button ng-click="noti.showNotify('error')" class="ua-raised ua-btn-red">error</ua-button>
+		<ua-button ng-click="noti.showNotify('warn')" class="ua-raised ua-btn-orange">warn</ua-button>
+		<ua-button ng-click="noti.showNotify('info')" class="ua-raised ua-btn-blue">info</ua-button>
+		<ua-button ng-click="noti.showNotify('success')" class="ua-raised ua-btn-green">success</ua-button>
+	</div>
+	<header>
+		<coding lan="markup">
+&lt;ua-button ng-click="noti.showNotify('error')" class="ua-raised ua-btn-red">error&lt;/ua-button>
+&lt;ua-button ng-click="noti.showNotify('warn')" class="ua-raised ua-btn-orange">warn&lt;/ua-button>
+&lt;ua-button ng-click="noti.showNotify('info')" class="ua-raised ua-btn-blue">info&lt;/ua-button>
+&lt;ua-button ng-click="noti.showNotify('success')" class="ua-raised ua-btn-green">success&lt;/ua-button>
+		</coding>
+		<coding lan="javascript">
+app.controller('demoNotifyCtrl',['$scope','$uaNotify',
+	function($scope,$uaNotify){
+	var ctrl = this;
+	this.notify = {
+		msg: 'you can add message and title, and even select type',
+	}
+
+	this.options = {
+		life: 4000,
+		type:'block',
+		alignVertical: 'top',
+		alignHorizontal: 'right',
+		theme: 'flip',
+	};
+	
+	this.showNotify = function(type ) {
+		$uaNotify.create( ctrl.options )[type]( ctrl.notify.msg, ctrl.notify.title );
+	}
+	/* you can simply call error,warn,info or success, this will use default config;
+	$uaNotify.error('some message') 
+	$uaNotify.success('some message')
+	
+	or, you can create({option_here}) once, then your config will be used every time you call error,info... etc.
+
+	*/
+}])
+		</coding>
+	</header>
+</div>
