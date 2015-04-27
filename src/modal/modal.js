@@ -1,3 +1,9 @@
+/**
+ * TODO
+ * 1.load custom template via xhr request,then compile template
+ *
+ * 
+ */
 ua.factory('$uaModal',[function(){
 
 	class Modal {
@@ -7,6 +13,7 @@ ua.factory('$uaModal',[function(){
 				 
 
 		}
+
 
 		_show(){
 
