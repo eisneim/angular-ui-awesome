@@ -10,10 +10,8 @@ ua.factory('$uaModal',[function(){
 		constructor( opt ) {
 			this.type = opt.type || 'confirm';// prompt
 			// this.event = opt.event; // get starting x,y position 
-				 
 
 		}
-
 
 		_show(){
 
