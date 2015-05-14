@@ -19,7 +19,7 @@
 		</ul> -->
 		<!-- <a href="#/" id="ua-doc-logo">LOGO</a> -->
 
-		<h2 class="ua-side-nav-title ua-line-loadin">Components</h2>
+		<h2 class="ua-side-nav-title ua-line-loadin">Demo</h2>
 		<ul class="ua-side-nav-list">
 			<li ng-repeat="cc in navCtrl.components" ng-class="{active:navCtrl.ui.selectedComp == cc}">
 				<a href="#/component/{{ cc }}" alt="{{cc}}">{{cc}}</a>
@@ -55,6 +55,8 @@
 <script src="app/componentData.js"></script>
 <script src="app/rootCtrl.js"></script>
 <script src="app/controllers/componentCtrl.js"></script>
+<script src="app/controllers/demoNotifyCtrl.js"></script>
+<script src="app/controllers/demoModalCtrl.js"></script>
 <script src="app/directives/componentDir.js"></script>
 
 </body>

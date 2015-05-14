@@ -34,5 +34,10 @@ angular.module('ua-doc').constant('COMDATA', [
     "path": 'app/comp/notify.html',
     "url": ""
   },
+  {
+    "name": "modal",
+    "path": 'app/comp/modal.html',
+    "url": ""
+  },
 
 ]);

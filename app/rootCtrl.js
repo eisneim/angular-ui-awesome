@@ -56,9 +56,9 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 		'button',
 		'inputBox',
 		'notify',
+		'modal',
 		'dropdown',
 		'date-picker',
-		'dialog',
 		'slider',
 		'checkbox',
 		'radioButton',
@@ -67,7 +67,8 @@ app.controller('navCtrl',['$scope','$location',function($scope,$location){
 	];
 
 	this.services = [
-		'$uaDialog',
+		'$uaNotify',
+		'$uaModal',
 		'$uaSideOverlay',
 	];
 
