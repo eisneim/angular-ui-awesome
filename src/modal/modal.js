@@ -21,6 +21,10 @@ ua.factory('$uaModal',[function(){
 
 		}
 
+		alter(message){
+			
+		}
+
 		confirm( message ){
 
 		}
